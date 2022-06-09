@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{parskip}
+\usepackage[most]{tcolorbox}
 \graphicspath{ {images/} }
 
 \begin{document}
@@ -81,10 +82,56 @@ What you need for a public key cryptographic system to work is a set of algorith
   \end{minipage}
   \hfill
   \begin{minipage}[hb]{0.3\textwidth}
+    \includegraphics[width=\textwidth]{RSA.jpg}
+    \caption{Rivet-Shamir-Adleman}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[hb]{0.3\textwidth}
     \includegraphics[width=\textwidth]{Diffle.jpg}
     \caption{Whitefield Diffle}
   \end{minipage}
 \end{figure}
 
+\section{RSA algorithm}
+RSA(Rivet-Shamir-Adleman) is a public-key cryptosystem that is widley used for secure data transmission.The acronym "RSA" comes from the surname of Ron Rivest,Adi Shamir and Leonard Adleman, who publicly described the algorithm in 1977.In a public-key cryptosystem, the encryption key is public and distinct from the decryption key, which is kept secret(Private).An RSA user creates and publishes a public key based on two large prime number,along with an auxiliary value.The prime numbers are kept secret.Messages can be encrypted by anyone, via the public key,but can only be decoded by someone who knows the prime numbers.
+The security of RSA relies on the practical difficulty of factoring the product of two large prime numbers, the "factoring problem".Breaking RSA encryption is know as the RSA problem.Whether it is as difficult as the factoring problem is an open question.There are no published methods to defeat the system if a large enough key is shared.RSA is a relatively slow algorithm.
+
+Let's make this more concrete with an example. Take the prime numbers 13 and 7,their product gives us our maximum value of 91.Let's take our public encryption key to be the number 5. Then using the fact that we know 7 and 13 are the factors of 91 and applying an algorithm called the Extended Euclidean Algorithm, we get that the private key is the number 29 
+
+
+\hspace{1cm}
+\begin{centre}
+\boxed{public \:key\:(e)\,:5\quad private\:key\;(d)\,:29\quad maximum\:key\:(n)\,:91}
+\end{centre}
+
+Let's use these values to encrypt the values to encrypt the message "CLOUD".
+In order to represent a message mathematically we have to turn the letters into numbers.A common representation of the Latin alphabet is UTF-8.Each character corresponds to a  number.
+\begin{figure}[h]
+\includegraphics[width=10cm, height=2.5cm]{ASCII.png}
+\centering
+\end{figure}
+
+Under this encoding,CLOUD is 67,76,79,85,68.Each of these digits are smaller than our maximum of 91,so we can encrypt them individually.Let's start with the first letter.
+For C=67 we have to multiply it by itself 5(public key) times to get the encrypted value.
+
+\begin{centre}
+\boxed{\(Encrypted\:Data\:E\, = A^e*(mod n)\)}
+\hspace{0.8cm}
+\boxed{\(Decrypted\:Data\:D\,= L^d*(mod n)\)}
+\end{centre}
+
+
+\(Encrypted\:Data\:C\,=67^5mod91=58\) \hspace{0.6cm} \(Decrypted\:Data \:C\,=58^{29}mod91=67\)\\
+\(Encrypted\: Data\: L\,=76^5mod91=20\) \hspace{0.6cm} \(Decrypted\:Data \:L\,=20^{29}mod91=76\)\\
+\(Encrypted\: Data \:O\,=79^5mod91=53\) \hspace{0.6cm} \(Decrypted\:Data \:O\,=53^{29}mod91=79\)\\
+\(Encrypted\: Data\: U\,=85^5mod91=50\) \hspace{0.6cm}\(Decrypted\:Data \:U\,=50^{29}mod91=85\)\\
+\(Encrypted \:Data\: D\,=68^5mod91=87\) \hspace{0.6cm} \(Decrypted\:Data \:D\,=87^{29}mod91=68\)\\
+
+So we can see that there no symmetric relation in keys so it will be harder to decrypt.
+
+The Takeaway is that you can take a number,multiply it by itself a number of times to get a random-looking number,then multiply that number by itself a secret number of times to get back to the original number.
+These factoring algorithms get more efficient as the size of the numbers being factored get larger.The gap between the difficulty of factoring large numbers and multiplying large numbers is shrinking as the number(The key's bit length) gets larger.As the resources available to decrypt numbers increase,the size of the keys need to grow even faster.This is not a sustainable situation for mobile and low-powered devices that have limited computational power.The gap between factoring and multiplying is not sustainable in the long term.
+
+All this means is that RSA is not the ideal system for the system for the future of cryptography.In an ideal Trapdoor  Function,the easy way and the hard way get harder at the same rate with respect to the numbers in question
 
 \end{document}
