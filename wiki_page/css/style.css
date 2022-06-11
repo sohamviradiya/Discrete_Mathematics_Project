@@ -1,8 +1,6 @@
 @import url(https://fonts.googleapis.com/css2?family=Candara&display=swap);
-/*@font-face{*/
-/*    font-family: 'Candara';*/
-/*    src: url('candara.ttf') format('woff2');*/
-/*}*/
+@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Roboto:wght@100&display=swap');
+
 body{
     display: flex;
     flex-direction: column;
@@ -12,9 +10,10 @@ body{
     --cp: #ffffff;
     --cd: #000000;
     --ca: #0000ff;
-    --fm: 'Candara', sans-serif;
-    font-size: 1.25vh;
+    --fm: 'Roboto', sans-serif;
+    font-size: 1.20vh;
     font-family: var(--fm);
+    letter-spacing: 0.2vh;
 }
 nav{
     position: fixed;
