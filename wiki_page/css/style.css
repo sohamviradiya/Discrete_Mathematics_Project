@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+
+:root {
+    --cp: #ffffff;
+    --cd: #000000;
+    --ca: #0000ff;
+    font-size:10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav{
+    position: fixed;
+    margin-top: -10px;
+    margin-left: -10px;
+
+    background-color: var(--cd);
+    width: 100vw;
+    height: 15vh;
+    color: var(--cp);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem;
+}
+
+.explore{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.page-title{
+    font-size: 5rem;
+    font-weight: 800;
+}
+.dropdown{
+    position: relative;
+}
+
+.opener{
+
+    cursor: pointer;
+    border: none;
+    background-color: var(--cd);
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--cp);
+}
+
+
+.collaborators{
+    position: absolute;
+    left: 0;
+    top:  calc(100% + 1rem);
+    background-color: var(--cd);
+    padding: 1rem;
+    box-shadow: 0 2px 5px 0 var(--cd);
+    opacity: 0;
+}
+
+.dropdown>.opener:hover + .collaborators{
+    opacity: 1;
+}
+
+li{
+    padding-left: 3rem;
+    padding-right: 3rem;
+    list-style: none;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bolder;
+    width: 16rem;
+    border: 0.1px solid #ffffff25;
+}
+
+a,a:visited{
+    font-size: 3rem;
+    font-weight: bolder;
+    color: var(--cp);
+    text-decoration: none;
+}
+
+
+
+
