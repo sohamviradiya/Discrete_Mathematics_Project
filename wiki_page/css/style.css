@@ -1,21 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 
+body{
+    display: flex;
+    flex-direction: column;
+}
+
 :root {
     --cp: #ffffff;
     --cd: #000000;
     --ca: #0000ff;
-    font-size:10px;
+    font-size: 1.25vmin;
     font-family: 'Poppins', sans-serif;
 }
-
 nav{
     position: fixed;
     margin-top: -10px;
     margin-left: -10px;
-
     background-color: var(--cd);
     width: 100vw;
-    height: 15vh;
+    height: 10vh;
     color: var(--cp);
 
     display: flex;
@@ -85,6 +88,26 @@ a,a:visited{
     text-decoration: none;
 }
 
+.container{
+    margin: 15vh 3rem;
+}
 
+h2{
+    font-size: 4rem;
+    font-weight: bolder;
+    color: var(--cd);
+}
+
+h3{
+    font-size: 3rem;
+    font-weight: bolder;
+    color: var(--cd);
+}
+
+p{
+    font-size: 2rem;
+    font-weight: bolder;
+    color: var(--cd);
+}
 
 
