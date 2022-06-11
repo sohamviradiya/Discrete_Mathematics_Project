@@ -1,8 +1,8 @@
-
-@font-face{
-    font-family: 'Candara';
-    src: url('candara.ttf') format('woff2');
-}
+@import url(https://fonts.googleapis.com/css2?family=Candara&display=swap);
+/*@font-face{*/
+/*    font-family: 'Candara';*/
+/*    src: url('candara.ttf') format('woff2');*/
+/*}*/
 body{
     display: flex;
     flex-direction: column;
