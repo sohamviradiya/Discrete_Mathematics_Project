@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{parskip}
+\usepackage{tabularx}
 \usepackage[most]{tcolorbox}
 \graphicspath{ {images/} }
 
@@ -133,5 +134,134 @@ The Takeaway is that you can take a number,multiply it by itself a number of tim
 These factoring algorithms get more efficient as the size of the numbers being factored get larger.The gap between the difficulty of factoring large numbers and multiplying large numbers is shrinking as the number(The key's bit length) gets larger.As the resources available to decrypt numbers increase,the size of the keys need to grow even faster.This is not a sustainable situation for mobile and low-powered devices that have limited computational power.The gap between factoring and multiplying is not sustainable in the long term.
 
 All this means is that RSA is not the ideal system for the system for the future of cryptography.In an ideal Trapdoor  Function,the easy way and the hard way get harder at the same rate with respect to the numbers in question
+
+After the introduction of RSA and Diffie-Hellman, researchers explored other mathematics-based cryptographic solutions looking for other algorithms beyond factoring that would serve as good Trapdoor Functions. In 1985, cryptographic algorithms were proposed based on an esoteric branch of mathematics called elliptic curves.
+\section{Elliptic curve Cryptography}
+elliptic-curve cryptography is a approach to public key cryptography based on the algebraic stricture of elliptic curves over finite fields.ECC allows smaller keys compared to non-EC cryptography(based on plain Galois Fields) to provide equivalent security.The use of elliptic curve in cryptography was suggested by independently by Neal Koblitz and Victor S.Miller in 1985. Elliptic curve cryptography algorithms entered wide use in 2004 to 2005.
+
+\begin{figure}[h]
+\includegraphics[width=10cm, height=3.3cm]{ECC.png}
+ \caption{Elliptic Curve\:\(y^2=x^3+ax+b\)}
+\centering
+\end{figure}
+
+Elliptic curves cryptography uses elliptic curves over the fintie field \(Z_{p}\)(where \(p\) is prime and \(p>3\)) or \(Z_{2m}\) (where the fields size p=2m).This means that the field is a square matrix of size \(p*p\) and the point on the curve is limited to integer coordinates within the field only.All algebric operation within the field (like point multiplication and addition) result in another point within the field.
+
+\textbf{The Elliptic curve equation over the finite field \(Zp\)}
+
+\hspace{4.5cm}
+\begin{centre}
+\boxed{\(y^2=x^3+ax+b(mod p)\)}
+\end{centre}
+
+\textbf{The Bitcoin curve(secp256k1) equation over the finite field \(Zp\)}
+
+\hspace{4.5cm}
+\begin{centre}
+\boxed{\(y^2=x^3+7(mod p)\)}
+\end{centre}
+
+Unlike RSA,which uses for its key space the integers in the range[0...p-1](the field Zp),the ECC uses the points\{x,y\} within the Galois field Zp(where x and y are integers in the range[0...p-1]
+
+\subsection{Mathematics}
+Given a curve,E,defined along some equation in a finite field(such as E:\(y^2=x^3+ax+b\),point multiplicatioj is defined as the repeated addition of a point along that curve.denote as \(nP=P+P+P...+P\) for some scalar n and a point \(P=(x,y)\) that lies on  the curve,E.
+\subsubsection{Point Operations}
+
+
+\begin{figure}[hb]
+  \centering
+  \begin{minipage}[hb]{0.31\textwidth}
+    \includegraphics[width=\textwidth]{PQR1.jpeg}
+    \caption{       \(P+Q+R=0\)}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[hb]{0.31\textwidth}
+    \includegraphics[width=\textwidth]{P.jpeg}
+    \caption{  \(P+P+0=0\)}
+  \end{minipage}
+  
+  \begin{minipage}[hb]{0.31\textwidth}
+    \includegraphics[width=\textwidth]{PR.jpeg}
+    \caption{  \(P+R+0=0\)}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[hb]{0.31\textwidth}
+    \includegraphics[width=\textwidth]{PQ.jpeg}
+    \caption{  \(P+Q+Q=0\)}
+  \end{minipage}
+  \hfill
+  
+\end{figure}
+\textbf{Point at Infinity}
+\newline
+Point at infinity \({\mathcal{O}}\) is the identity element of elliptic curve arithmetic.Adding it to ant point result in that other point,including adding point at infinity to itself.That is
+
+\hspace{4cm}
+\begin{centre}
+\boxed{\({\mathcal{O}}+{\mathcal{O}}={\mathcal{O}}\)}
+\newline
+\end{centre}
+
+\hspace{4cm}
+\begin{centre}
+\boxed{\({\mathcal{O}}+{\mathcal{P}}={\mathcal{P}}\)}
+\end{centre}
+
+\textbf{Point negation}
+\newline
+Point negation is finding such a point,that adding it to itself will result in point at infinity(\({\mathcal{O}}\)).
+
+\hspace{3.9cm}
+\begin{centre}
+\boxed{\({\mathcal{P}}+({\mathcal{-P}})={\mathcal{O}}\)}
+\end{centre}
+
+For elliptic curves that is a point with same x coordinate but negated y coordinate:
+
+\begin{centre}
+\boxed{\((x,y)+(-(x,y))={\mathcal{O}}\)}
+\end{centre}
+\begin{centre}
+\boxed{\((x,y)+(x,-y))={\mathcal{O}}\)}
+\end{centre}
+\begin{centre}
+\boxed{\((x,-y)=-(x,y)\)}
+\end{centre}
+
+\textbf{Point addition}
+\newline
+With 2 distinct points,$P$ and $Q$,addition is defined as the negation of the point resulting from the intersectio of the curve,$E$,and the straight line defined by the points $P$ and $Q$ giving the point,$R$
+
+\hspace{4.3cm}
+\begin{centre}
+\boxed{$P$\:+ \:$Q$ \:= \:$R$}
+\end{centre}
+
+Assuming the elliptic curve,$E$, is given by \(y^2=x^3+ax+b\), this can be calculated as:
+\hspace{3cm}
+\begin{center}
+    \boxed{\lambda=\frac{y_{q}-y_{p}}{x_q-x_p}}
+\end{center}
+\hspace{2.5cm}
+\begin{centre}
+\boxed{x_{r}=\lambda^2-x_{p}-x_{q}}
+\end{centre}
+\begin{centre}
+\boxed{y_{r}=\lambda((x_{p}-x_{r})-y_{p}}
+\end{centre}
+
+These equations are correct when neither point is the point at infinity,{\mathcal{O}},and if the points have diffrent x coordinates(they're not mutual inverses).This is important for the Elliptic curve digital singature algorithm(ESDSA) where the hash value could be zero.
+
+\textbf{Point doubling}
+\newline
+Where the point $P$ and $Q$ are coincident(at same coordinate),addition is similar,except that there is no well-defined straight line through $P$,so the operation is closed using limiting case,the tangent to the curve,$E$,at $P$.
+This is calculated as above,taking derivatives
+\begin{center}
+    \boxed{{\frac{\partial E}{\partial x}}/{\frac{\partial E}{\partial y}}}
+\end{center}
+\begin{center}
+    \boxed{\lambda=\frac{3x_{p}^2+a}{2y_{p}}}
+\end{center}
+where a is from the defining equation of the curve,$E$,above.
 
 \end{document}
