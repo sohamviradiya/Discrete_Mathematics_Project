@@ -1,5 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
 
+@font-face{
+    font-family: 'Candara';
+    src: url('candara.ttf') format('woff2');
+}
 body{
     display: flex;
     flex-direction: column;
@@ -9,8 +12,9 @@ body{
     --cp: #ffffff;
     --cd: #000000;
     --ca: #0000ff;
-    font-size: 1.25vmin;
-    font-family: 'Poppins', sans-serif;
+    --fm: 'Candara', sans-serif;
+    font-size: 1.25vh;
+    font-family: var(--fm);
 }
 nav{
     position: fixed;
@@ -36,8 +40,8 @@ nav{
 }
 
 .page-title{
-    font-size: 5rem;
-    font-weight: 800;
+    font-size: 5.5rem;
+    font-weight: 600;
 }
 .dropdown{
     position: relative;
@@ -48,9 +52,8 @@ nav{
     cursor: pointer;
     border: none;
     background-color: var(--cd);
-
-    font-family: 'Poppins', sans-serif;
-    font-size: 3rem;
+    font-family: var(--fm);
+    font-size: 3.5rem;
     font-weight: bold;
     color: var(--cp);
 }
@@ -75,14 +78,14 @@ li{
     padding-right: 3rem;
     list-style: none;
     text-align: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bolder;
     width: 16rem;
     border: 0.1px solid #ffffff25;
 }
 
 a,a:visited{
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: bolder;
     color: var(--cp);
     text-decoration: none;
@@ -93,19 +96,19 @@ a,a:visited{
 }
 
 h2{
-    font-size: 4rem;
+    font-size: 4.5rem;
     font-weight: bolder;
     color: var(--cd);
 }
 
 h3{
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: bolder;
     color: var(--cd);
 }
 
 p{
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bolder;
     color: var(--cd);
 }
