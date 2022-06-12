@@ -16,13 +16,17 @@ body{
     letter-spacing: 0.2vh;
 }
 
+.container{
+    margin: 15vh 3rem;
+}
+
 nav{
     position: fixed;
     margin-top: -10px;
     margin-left: -10px;
     background-color: var(--cd);
     width: 100vw;
-    height: 10vh;
+    height: 8vh;
     color: var(--cp);
 
     display: flex;
@@ -48,7 +52,6 @@ nav{
 }
 
 .opener{
-
     cursor: pointer;
     border: none;
     background-color: var(--cd);
@@ -91,9 +94,6 @@ a,a:visited{
     text-decoration: none;
 }
 
-.container{
-    margin: 15vh 3rem;
-}
 
 h2{
     font-size: 4.5rem;
@@ -154,4 +154,17 @@ footer{
     font-size: 1.5rem;
     text-align: end;
     padding: 2rem;
+}
+
+label,output{
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 2rem;
+}
+
+#input-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
