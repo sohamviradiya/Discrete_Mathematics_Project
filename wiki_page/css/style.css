@@ -113,4 +113,16 @@ p{
     color: var(--cd);
 }
 
+footer{
+    
+    height: min-content;
+    background-color: var(--cd);
+    margin-bottom: -2rem;
+    margin-left: -2rem;
 
+    color: var(--cp);
+    font-size: 1.5rem;
+    text-align: end;
+    padding: 2rem;
+    
+}
