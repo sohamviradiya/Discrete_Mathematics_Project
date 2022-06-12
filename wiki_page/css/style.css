@@ -11,7 +11,7 @@ body{
     --cd: #000000;
     --ca: #0000ff;
     --fm: 'Roboto', sans-serif;
-    font-size: 1.20vh;
+    font-size: 1.20vmin;
     font-family: var(--fm);
     letter-spacing: 0.2vh;
 }
