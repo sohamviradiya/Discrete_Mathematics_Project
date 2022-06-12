@@ -107,11 +107,18 @@
 
             <div class="sub-section">
                 <h4 class="subsection-title"> Point Scalar Multiplication: </h4>
-                <p class="section-content"> &emsp; By using Doubling and Addition concept we can multiply a point with scalar,  </p>
+                <p class="section-content"> &emsp; We can multiply a point with a number k by using Doubling and Addition concepts. This algorithm generally takes log<sub>2</sub>k time to compute M = k*P.</p>
                 <p class="math-equation"> if S= 2P, then...  </p>
                 <p class="math-equation"> 3P = 2P + P = S + P </p>
                 <p class="math-equation"> 4P = 2S = S + S and so on... </p>
                 <iframe src="https://www.desmos.com/calculator/jhelj8lxep?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+            </div>
+
+            <div class="sub-section">
+                <h4 class="subsection-title"> Elliptic Curves over finite fields: </h4>
+                <p class="section-content">
+                    &emsp; For a prime number p, We can construct a finite field Z<sub>p</sub> with p number of elements. We can define a curve over Field F<sub>p</sub> = Z<sub>p</sub> &otimes; Z<sub>p</sub> as y<sup>2</sup> &equiv; x<sup>3</sup> + ax + b (mod p). Here, a,b &isin; Z<sub>p</sub>. <i>The order of the curve n</i> is the total number of finite field pairs that lie on this curve, including the point at infinity O. <br>
+                    &emsp; If we add any two points or multiply a point by a number in a cyclic subgroup, the result will be within that same cyclic subgroup. There is no overlap between any two cyclic subgroups. If each cyclic subgroup contains r points, then <i>the cofactor of the curve is h = n/r</i>. It is better to have less cofactor for security efficiency ideally <i>h should be 1</i> &rAarr; All points on the curve should be in a single cyclic group.</p>
             </div>
         </section>
 

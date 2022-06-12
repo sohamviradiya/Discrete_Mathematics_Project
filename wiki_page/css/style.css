@@ -120,9 +120,16 @@ h4{
 
 p{
     font-size: 2.5rem;
-    font-weight: bolder;
+    font-weight: bold;
     color: var(--cd);
+    line-height: 3.5rem;
 }
+
+i{
+    font-weight: 800;
+    color: var(--ca);
+}
+
 
 .sub-section{
     display:flex;
@@ -147,5 +154,4 @@ footer{
     font-size: 1.5rem;
     text-align: end;
     padding: 2rem;
-    
 }
