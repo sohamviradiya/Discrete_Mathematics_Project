@@ -64,10 +64,39 @@
 
         <section class="content-section" id="math-section">
             <h3 class="section-title"> Mathematics of Elliptic curves on finite fields  : </h3>
-            <div class="math-section-content">
-               <iframe src="https://www.desmos.com/calculator/ktmz4qg8fp" class="desmos-graph"></iframe>
+
+            <div class="sub-section">
+               <h4 class="subsection-title"> Elliptic Curves:</h4>
+                <p class="section-content"> &emsp; Elliptic curves are curves described by the equation y<sup>2</sup> = x<sup>3</sup> + ax + b over an algebric field K .  Where a,b &isin; K. It looks something like this: </p>
+                <iframe src="https://www.desmos.com/calculator/qromkyset0?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+            </div>
+
+            <div class="sub-section">
+                <h4 class="subsection-title"> Point at Infinity:</h4>
+                <p class="section-content"> &emsp; The point at infinity is denoted by the symbol O. It is the <i>identity element / point</i> of elliptic curve maths.
+                <p class="math-equation">  O + O = O </p>
+                <p class="math-equation"> P + O = P </p>
+                <p class="math-equation"> Here, P + P + O = O </p>
+                <iframe src="https://www.desmos.com/calculator/2jcmdq1ckb?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+            </div>
+
+            <div class="sub-section">
+                <h4 class="subsection-title"> Point Negation:</h4>
+                <p class="section-content"> For Point P(x, y)  on the Elliptic curve Q(x, -y) is defined as negation of P. Their sum results into the identity point.</p>
+                <iframe src="https://www.desmos.com/calculator/2lxywihl2w?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+            </div>
+
+            <div class="sub-section">
+                <h4 class="subsection-title"> Point Addition:</h4>
+                <p class="section-content"> &emsp;  For Points P and Q on the curve if the line passing from them intersects the curve at R then P + Q + R = 0. Here, S is negation of R &rAarr;  S + R = 0 &rAarr;  S = P + Q . Mathematically, </p>
+
+                <p class="math-equation">  if m = (y<sub>q</sub> - y<sub>p</sub>)/(x<sub>q</sub> - x<sub>p</sub>) , then... </p>
+                <p class="math-equation"> x<sub>s</sub> = m<sup>2</sup> - x<sub>q</sub> - x<sub>p</sub>  </p>
+                <p class="math-equation"> y<sub>s</sub> = m(x<sub>p</sub> - x<sub>s</sub>) - y<sub>p</sub> </p>
+                <iframe src="https://www.desmos.com/calculator/dqxnmyupud?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
             </div>
         </section>
+
 
         <section class="content-section" id="algorithm-section">
             <h3 class="section-title"> Elliptic Curve Diffie Hellman Algorithm  : </h3>
