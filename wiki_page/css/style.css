@@ -181,6 +181,18 @@ label,output{
     align-items: center;
 }
 
+.section-title{
+    font-weight: 400;
+    text-decoration: underline;
+    font-family: 'Walter Turncoat', cursive;
+}
+
+.project-title{
+    font-weight: bolder;
+    text-decoration: none;
+} 
+
+
 .radio-container{
     display: flex;
     flex-direction: row;
