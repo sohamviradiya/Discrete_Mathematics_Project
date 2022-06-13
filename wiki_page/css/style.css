@@ -10,11 +10,11 @@ body{
     --cp: #ffffff;
     --cd: #000000;
     --ca: #0000ff;
+    --cl: #c5cae9;
     --fm: 'Roboto', sans-serif;
     font-size: 1.20vmin;
     font-family: var(--fm);
     letter-spacing: 0.2vh;
-
 }
 
 .container{
@@ -23,8 +23,8 @@ body{
 
 nav{
     position: fixed;
-    margin-top: -10px;
-    margin-left: -10px;
+    margin-top: -2rem;
+    margin-left: -2rem;
     background-color: var(--cd);
     width: 100vw;
     height: 8vh;
@@ -42,11 +42,22 @@ nav{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    transition: all 0.3s ease-out;
+}
+
+.opener:hover, .explore a:hover{
+    color: var(--cl);
+    transform: rotate(3deg);
 }
 
 .page-title{
     font-size: 5.5rem;
     font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 45px 0 45px;
+    align-items: center;
+    flex-wrap: wrap;
 }
 .dropdown{
     position: relative;
@@ -62,7 +73,6 @@ nav{
     color: var(--cp);
 }
 
-
 .collaborators{
     position: absolute;
     left: 0;
@@ -76,6 +86,7 @@ nav{
 .dropdown>.opener:focus + .collaborators{
     opacity: 1;
 }
+
 
 li{
     padding-left: 3rem;
@@ -95,8 +106,8 @@ a,a:visited{
     text-decoration: none;
 }
 
-
-h2{
+.project-title{
+    margin-left: -2rem;
     font-size: 4.5rem;
     font-weight: bolder;
     color: var(--cd);
@@ -178,17 +189,60 @@ label,output{
     box-shadow: 0 2px 5px 0 var(--cd);
 }
 
-.graph-container{
-    width: 60vh;
+#graph-generator{
+    width: 20vh;
+    height: 3rem;
+    font-size: 2rem;
     align-self: center;
+
+    font-weight: bold;
+    color : var(--cp);
+    background-color: var(--cd);
     box-shadow: 0 2px 5px 0 var(--cd);
-    padding: 5vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    font-family: var(--fm);
 }
 
-.graph-canvas{
-    width: 50vh;
+#graph-generator:hover{
+    background-color: var(--ca);
+    color: var(--cd);
+}
 
+#demo-container{
+    display: grid;
+    grid-template-columns: 7fr 7fr;
+    grid-template-rows: 1fr 5fr;
+    gap: 10vh;
+    justify-items: center;
+}
+
+#prime-container{
+    height: 10vh;
+    grid-row: 1/2;
+    grid-column: 1/2;
+
+}
+
+#equation-container{
+    height: 10vh;
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+#graph-container{
+    grid-row :2/3;
+    grid-column: 1/3;
+    align-self: center;
+    box-shadow: 0 2px 5px 0 var(--cd);
+
+    padding: 5vh;
+    display: flex;
+    gap: 5vh;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-evenly;
+}
+
+#input-graph{
+    height: 50vh;
+    width: 50vh;
 }
