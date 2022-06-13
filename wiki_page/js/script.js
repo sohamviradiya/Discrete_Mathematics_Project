@@ -58,8 +58,9 @@
                 row.appendChild(cell);
             }
         }
-
     }
+
+
 
     //generate curve
    const generator_button = document.querySelector('#graph-generator');
