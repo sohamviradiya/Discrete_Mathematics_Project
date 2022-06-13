@@ -168,3 +168,11 @@ label,output{
     justify-content: space-around;
     align-items: center;
 }
+
+.radio-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 2px 5px 0 var(--cd);
+}
