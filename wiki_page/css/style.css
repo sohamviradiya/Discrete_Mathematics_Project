@@ -14,6 +14,7 @@ body{
     font-size: 1.20vmin;
     font-family: var(--fm);
     letter-spacing: 0.2vh;
+
 }
 
 .container{
@@ -175,4 +176,19 @@ label,output{
     justify-content: space-around;
     align-items: center;
     box-shadow: 0 2px 5px 0 var(--cd);
+}
+
+.graph-container{
+    width: 60vh;
+    align-self: center;
+    box-shadow: 0 2px 5px 0 var(--cd);
+    padding: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.graph-canvas{
+    width: 50vh;
+
 }
