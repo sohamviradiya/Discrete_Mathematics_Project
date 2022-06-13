@@ -145,27 +145,27 @@
 
                 <label for="prime-container"> Select Prime Number: </label>
                 <div id="prime-container" class="radio-container">
-                    <input type="radio" value="7" name="prime" id="3-bit" class="prime-radio">
-                    <label for="3-bit" class="radio-label"> 7 </label>
-                    <input type="radio" value="13" name="prime" id="4-bit" class="prime-radio" checked>
-                    <label for="4-bit" class="radio-label"> 13 </label>
-                    <input type="radio" value="31" name="prime" class="prime-radio" id="5-bit">
-                    <label for="5-bit" class="radio-label"> 31 </label>
+                    <input type="radio" value="4" name="prime" id="3-bit" class="prime-radio">
+                    <label for="3-bit" class="radio-label"> 4-bit prime</label>
+                    <input type="radio" value="6" name="prime" class="prime-radio" id="5-bit">
+                    <label for="5-bit" class="radio-label"> 6-bit prime</label>
+                    <input type="radio" value="8" name="prime" id="4-bit" class="prime-radio" checked>
+                    <label for="4-bit" class="radio-label"> 8-bit prime</label>
+
                  </div>
+                <label for="equation-container"> Equation: </label>
+                <div id="equation-container" class="radio-container">
 
-                <div id="a-selector" class="slider-container">
-                    <label for="a-slider"> Select parameter a: </label>
-                    <input type="range" min="0" max="13" value="0" id="a-slider" class="slider" name="a">
-                    <output for="a-slider" id="a-output" class="output"> 0 </output>
-                </div>
+                    <input type="radio" value="1.6" name="equation" id="curve1.6" class="equation-radio">
+                    <label for="curve1.6" class="radio-label"> y<sup>2</sup> = x<sup>3</sup> + x + 6 </label>
 
-                <div id="b-selector" class="slider-container">
-                    <label for="b-slider"> Select parameter b: </label>
-                    <input type="range" min="0" max="13" value="0" id="b-slider" class="slider" name="b">
-                    <output for="b-slider" id="b-output" class="output"> 0 </output>
-                </div>
+                    <input type="radio" value="2.4" name="equation" id="curve2.4" class="equation-radio" checked>
+                    <label for="curve2.4" class="radio-label"> y<sup>2</sup> = x<sup>3</sup> + 2x + 4 </label>
+
+                    <input type="radio" value="-2.5" name="equation" id="curve-2.5" class="equation-radio">
+                    <label for="curve-2.5" class="radio-label"> y<sup>2</sup> = x<sup>3</sup> - 2x + 5 </label>
+
             </div>
-            <p class="math-equation"> Your Curve:  y<sup>2</sup> &equiv; x<sup>3</sup> + ax + b (mod p) </p>
         </section>
     </div>
 
