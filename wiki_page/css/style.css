@@ -1,11 +1,6 @@
 @import url(https://fonts.googleapis.com/css2?family=Candara&display=swap);
 @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&family=Roboto:wght@100&display=swap');
 
-body{
-    display: flex;
-    flex-direction: column;
-}
-
 :root {
     --cp: #ffffff;
     --cd: #000000;
@@ -17,11 +12,7 @@ body{
     letter-spacing: 0.2vh;
 }
 
-.container{
-    margin: 15vh 3rem;
-}
-
-nav{
+.nav-bar{
     position: fixed;
     margin-top: -2rem;
     margin-left: -2rem;
@@ -59,6 +50,7 @@ nav{
     align-items: center;
     flex-wrap: wrap;
 }
+
 .dropdown{
     position: relative;
 }
@@ -87,8 +79,7 @@ nav{
     opacity: 1;
 }
 
-
-li{
+.collaborators>li{
     padding-left: 3rem;
     padding-right: 3rem;
     list-style: none;
@@ -97,6 +88,43 @@ li{
     font-weight: bolder;
     width: 16rem;
     border: 0.1px solid #ffffff25;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr;
+    width: 100%;
+    gap: 5rem;
+}
+
+.side-bar{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    height: 100vh;
+    margin: 10vh 0;
+    background-color: var(--cp);
+    padding: 10vh 0;
+}
+
+.page-nav{
+    position: fixed;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    list-style-type: upper-roman;
+}
+
+.page-nav>li>a{
+    font-size: 1.5rem;
+    margin: 1rem;
+    color: var(--cd);
+}
+
+
+.container{
+    grid-column: 2/3;
+
 }
 
 a,a:visited{
@@ -154,18 +182,6 @@ i{
     align-self: center;
     width: 80vh;
     aspect-ratio: 2/1;
-}
-
-footer{
-    height: min-content;
-    background-color: var(--cd);
-    margin-bottom: -2rem;
-    margin-left: -2rem;
-
-    color: var(--cp);
-    font-size: 1.5rem;
-    text-align: end;
-    padding: 2rem;
 }
 
 label,output{
@@ -251,4 +267,14 @@ label,output{
 #input-graph{
     height: 80vh;
     width: 80vh;
+}
+
+footer{
+    height: min-content;
+    background-color: var(--cd);
+    margin: 10vh -1vh -2vh;
+    color: var(--cp);
+    font-size: 1.5rem;
+    text-align: end;
+    padding: 2rem;
 }
