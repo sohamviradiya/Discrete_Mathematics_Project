@@ -1,5 +1,4 @@
 # Discrete_Mathematics_Project
 ## SC205 Group Project 
-For Jekyll
-#### __[wiki_page](https://htmlpreview.github.io/?https://github.com/sohamviradiya/Discrete_Mathematics_Project/blob/main/wiki_page/index.html){:target="_blank"}__
-#### __[introductory_video](https://www.youtube.com/watch?v=dQw4w9WgXcQ){:target="_blank"}__
+#### [wiki_page](https://htmlpreview.github.io/?https://github.com/sohamviradiya/Discrete_Mathematics_Project/blob/main/wiki_page/index.html){:target="_blank"}
+#### [introductory_video](https://www.youtube.com/watch?v=dQw4w9WgXcQ){:target="_blank"}
