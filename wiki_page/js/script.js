@@ -41,10 +41,10 @@
         {
             const row = document.createElement('div');
             row.classList.add('row');
+            row.setAttribute('id',`row${y}`);
             row.style.height= 80/p+"vh";
             row.style.display="flex";
             row.style.flexDirection="row";
-
             for(let x=0;x<p;x++)
             {
                 const cell=document.createElement('div');
@@ -53,10 +53,12 @@
                 cell.style.height = row.style.height;
                 cell.style.backgroundColor = ( (y**2-x**3-a*x-b)%p === 0 )? '#0000FF': '#FFFFFF';
                 cell.style.border="1px solid black";
-
+                
                 row.appendChild(cell);
             }
+
             canvas.appendChild(row);
+
         }
     }
 

@@ -14,12 +14,16 @@
 
 .nav-bar{
     position: fixed;
+    z-index: 1;
+    top: 0;
     margin-top: -2rem;
     margin-left: -2rem;
+    margin-bottom: 10rem;
     background-color: var(--cd);
     width: 100vw;
     height: 8vh;
     color: var(--cp);
+
 
     display: flex;
     flex-direction: row;
@@ -87,15 +91,18 @@
     font-size: 2rem;
     font-weight: bolder;
     width: 16rem;
-    border: 0.1px solid #ffffff25;
+    border: 0.1rem solid #ffffff25;
 }
 
 main{
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr;
-    width: 100%;
     gap: 5rem;
+
+    margin-top: 15vh;
+
 }
 
 .side-bar{
@@ -174,6 +181,11 @@ i{
 }
 
 .content-section{
+
+}
+
+.row_label{
+    color: var(--cd);
 
 }
 

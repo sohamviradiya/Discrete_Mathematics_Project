@@ -32,17 +32,17 @@
     <main>
         <div class="side-bar">
             <ul class="page-nav">
-                <li><a href="#needs-section">Needs of Cryptography</a> </li>
-                <li><a href="#history-section">History of Cryptography</a></li>
-                <li><a href="#RSA-section">RSA cryptosystem</a></li>
-                <li><a href="#DHKE-section">Diffie–Hellman Key Exchange</a></li>
-                <li><a href="#math-section">Elliptic curves</a></li>
-                <li><a href="#algorithm-section">Elliptic Curve Diffie Hellman</a></li>
-                <li><a href="#commercialization-section">Commercialization</a></li>
-                <li><a href="#webapp-section">Software Implementation</a></li>
+                <li><a href="#page-container">Needs of Cryptography</a> </li>
+                <li><a href="#needs-section">History of Cryptography</a></li>
+                <li><a href="#history-section">RSA cryptosystem</a></li>
+                <li><a href="#RSA-section">Diffie–Hellman Key Exchange</a></li>
+                <li><a href="#DHKE-section">Elliptic curves</a></li>
+                <li><a href="#finite-fields">Elliptic Curve Diffie Hellman</a></li>
+                <li><a href="#algorithm-section">Commercialization</a></li>
+                <li><a href="#commercialization-section">Software Implementation</a></li>
             </ul>
         </div>
-        <div class="container">
+        <div class="container" id="page-container">
             <h2 class="project-title">Elliptical Curve Crytography : </h2>
             <section class="content-section" id="needs-section">
                 <h3 class="section-title"> Needs of Cryptography : </h3>
@@ -129,7 +129,7 @@
                 </div>
 
                 <div class="sub-section">
-                    <h4 class="subsection-title"> Elliptic Curves over finite fields: </h4>
+                    <h4 class="subsection-title" id="finite-fields"> Elliptic Curves over finite fields: </h4>
                     <p class="section-content">
                         &emsp; For a prime number p, We can construct a finite field Z<sub>p</sub> with p number of elements. We can define a curve over Field F<sub>p</sub> = Z<sub>p</sub> &otimes; Z<sub>p</sub> as y<sup>2</sup> &equiv; x<sup>3</sup> + ax + b (mod p). Here, a,b &isin; Z<sub>p</sub>. <i>The order of the curve n</i> is the total number of finite field pairs that lie on this curve, including the point at infinity O. <br>
                         &emsp; We can find cyclic subgroups of points such that if we add any two points or multiply a point by a number in a cyclic subgroup, the result will be within that same cyclic subgroup. There is no overlap between any two cyclic subgroups. If each cyclic subgroup contains r points, then <i>the cofactor of the curve is h = n/r</i>. It is better to have less cofactor for security efficiency ideally <i>h should be 1</i> &rAarr; All points on the curve should be in a single cyclic group.</p>
