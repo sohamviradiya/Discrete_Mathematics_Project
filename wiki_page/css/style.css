@@ -189,7 +189,6 @@ i{
 
 }
 
-
 .sub-section{
     display:flex;
     flex-direction: column;
@@ -211,14 +210,21 @@ label,output{
 
 #demo-container{
     display: grid;
-    grid-template-columns: 7fr 7fr;
-    grid-template-rows: 1fr 5fr;
+    grid-template-columns: 1fr 6fr 1fr;
     justify-items: center;
+    gap: -3vh;
+}
+
+.equation-radio-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin:1rem;
+    align-items: center;
 }
 
 .radio-container{
     box-shadow: 0 2px 5px 0 var(--cd);
-
 
     display: flex;
     flex-direction: row;
@@ -226,6 +232,43 @@ label,output{
     align-items: center;
     padding-left: 2rem;
     padding-right: 2rem;
+}
+
+#prime-container{
+    height: 50vh;
+    grid-column: 1/2;
+
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+}
+
+#equation-container{
+    height: 50vh;
+    grid-column: 3/4;
+
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#graph-container{
+    grid-column: 2/3;
+    grid-row:1/2;
+    align-self: center;
+    box-shadow: 0 2px 5px 0 var(--cd);
+
+    padding:  4vh;
+    display: flex;
+    gap: 4vh;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-evenly;
 }
 
 #graph-generator{
@@ -245,34 +288,6 @@ label,output{
     background-color: var(--ca);
     color: var(--cd);
 }
-
-#prime-container{
-    height: 10vh;
-    grid-row: 1/2;
-    grid-column: 1/2;
-
-}
-
-#equation-container{
-    height: 10vh;
-    grid-column: 2/3;
-    grid-row: 1/2;
-}
-
-#graph-container{
-    grid-row :2/3;
-    grid-column: 1/3;
-    align-self: center;
-    box-shadow: 0 2px 5px 0 var(--cd);
-
-    padding: 5vh;
-    display: flex;
-    gap: 5vh;
-    flex-direction: column;
-    align-content: center;
-    justify-content: space-evenly;
-}
-
 #input-graph{
     height: 80vh;
     width: 80vh;
