@@ -269,6 +269,9 @@ label,output{
     width: 80vh;
 }
 
+
+
+
 footer{
     height: min-content;
     background-color: var(--cd);
