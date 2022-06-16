@@ -121,10 +121,13 @@ main{
     color: var(--cd);
 }
 
+.project-title{
+    font-weight: bolder;
+    text-decoration: none;
+}
 
 .container{
     grid-column: 2/3;
-
 }
 
 a,a:visited{
@@ -170,6 +173,10 @@ i{
     color: var(--ca);
 }
 
+.content-section{
+
+}
+
 
 .sub-section{
     display:flex;
@@ -187,28 +194,26 @@ i{
 label,output{
     font-size: 2rem;
     font-weight: 800;
-    margin: 2rem;
+    width:max-content;
 }
 
-#input-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+#demo-container{
+    display: grid;
+    grid-template-columns: 7fr 7fr;
+    grid-template-rows: 1fr 5fr;
+    justify-items: center;
 }
-
-.project-title{
-    font-weight: bolder;
-    text-decoration: none;
-} 
-
 
 .radio-container{
+    box-shadow: 0 2px 5px 0 var(--cd);
+
+
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    box-shadow: 0 2px 5px 0 var(--cd);
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 #graph-generator{
@@ -227,14 +232,6 @@ label,output{
 #graph-generator:hover{
     background-color: var(--ca);
     color: var(--cd);
-}
-
-#demo-container{
-    display: grid;
-    grid-template-columns: 7fr 7fr;
-    grid-template-rows: 1fr 5fr;
-    gap: 10vh;
-    justify-items: center;
 }
 
 #prime-container{
@@ -268,9 +265,6 @@ label,output{
     height: 80vh;
     width: 80vh;
 }
-
-
-
 
 footer{
     height: min-content;
