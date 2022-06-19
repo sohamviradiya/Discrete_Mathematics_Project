@@ -99,8 +99,7 @@ main{
     display: grid;
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 1fr;
-    gap: 5rem;
-
+    gap: 10rem;
     margin-top: 15vh;
 
 }
@@ -178,6 +177,10 @@ p{
 i{
     font-weight: 800;
     color: var(--ca);
+}
+
+.section-break{
+    height: 10vh;
 }
 
 .content-section{

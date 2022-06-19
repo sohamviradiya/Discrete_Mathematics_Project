@@ -1,4 +1,4 @@
-
+//TO DO: link two files
 //define points
 class point{
     constructor(x,y,prime){

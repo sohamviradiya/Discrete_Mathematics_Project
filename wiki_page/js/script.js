@@ -66,7 +66,6 @@
     //generate curve
    const generator_button = document.querySelector('#graph-generator');
      generator_button.addEventListener('click',() =>{
-
         generate_curve(a,b,prime);
     });
 
