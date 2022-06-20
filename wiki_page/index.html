@@ -70,8 +70,42 @@
                 <section class="content-section" id="RSA-section">
                     <h3 class="section-title"> RSA cryptosystem : </h3>
                     <p class="section-content">
-                        <img src="img/RSA.png" alt="RSA" class="RSA-image" width="100%">
-                    </p>
+                    &emsp;&emsp; RSA (Rivest Shamir Adleman) is a public-key cryptosystem that is widely used for secure data transmission. It is also one of the oldest. The acronym RSA comes from the surnames of Ron Rivest , Adi Shamir and Leonard Adleman , who publicly described the algorithm in 1977.
+                </p>
+                <p>
+                    &emsp;&emsp;In a public-key cryptosystem, the encryption key is public and distinct from the decryption key,
+                    which is kept secret (private). An RSA user creates and publishes a public key based on two large
+                    prime numbers, along with an auxiliary value. The prime numbers are kept secret. Messages can be
+                    encrypted by anyone, via the public key, but can only be decoded by someone who knows the prime
+                    numbers.
+                </p>
+                <p>
+                    &emsp;&emsp;The security of RSA relies on the practical difficulty of factoring the product of two large prime numbers, the ”factoring problem”. Breaking RSA encryption is known as the RSA problem. Whether
+                    it is as difficult as the factoring problem is an open question. There are no published methods to defeat
+                    the system if a large enough key is used.
+                    <img src="https://sectigostore.com/blog/wp-content/uploads/2020/06/how-rsa-works.png" alt="RSA" class="RSA-image" width="100%">
+                </p>
+                <div>
+                    <div>
+                        <h4> <p> &#9830; &emsp; Key Generation &#8594;</p></h3>
+                        <p>Select p and q:~  p & q both prime</p>
+                        <p>Calculate n:~ n = p*q </p>
+                        <p>Select Integer d:~  gcd(&#8709;(n) , d) = 1 ; 1 &#60; d &#60; &#8709;(n) </p>
+                        <p>Calculate d:~  e = d<sup>-1</sup> (mod &#8709;(n))</p>
+                        <p>Public Key:~  KU = {e, n}</p>
+                        <p>Private Key:~  KR = {d, n}</p>
+                    </div>
+                    <div>
+                        <h4><p> &#9830; &emsp;  Encryption &#8594;</p></h4>
+                        <p>Plaintext:~ M&#60;n</p>
+                        <p>Ciphertext:~ C = M<sup>e</sup>  (mod n)</p>
+                    </div>
+                    <div>
+                        <h4><p> &#9830; &emsp; Decryption &#8594;</p></h4>
+                        <p>Ciphertext:~ C</p>
+                        <p>Plaintext:~ C<sup>d</sup> (mod n) </p>
+                    </div>
+                </div>
                 </section>
 
                 <div id="begin-DHKE" class="section-break"></div>
