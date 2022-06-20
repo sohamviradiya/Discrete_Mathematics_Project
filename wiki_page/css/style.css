@@ -50,7 +50,7 @@
     font-weight: 600;
     display: flex;
     justify-content: space-between;
-    padding: 0 45px 0 45px;
+    padding: 0 4rem;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -75,7 +75,7 @@
     top:  calc(100% + 1rem);
     background-color: var(--cd);
     padding: 1rem;
-    box-shadow: 0 2px 5px 0 var(--cd);
+    box-shadow: 0 1rem 3rem 0 var(--cd);
     opacity: 0;
 }
 
@@ -97,20 +97,20 @@
 main{
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr;
-    gap: 10rem;
+    gap: 5rem;
     margin-top: 15vh;
-
+    margin-left: -1vh;
 }
 
 .side-bar{
     grid-column: 1/2;
     grid-row: 1/2;
-    height: 100vh;
-    margin: 10vh 0;
-    background-color: var(--cp);
+    height: 100%;
+    margin: -5vh 0;
     padding: 10vh 0;
+    box-shadow: 0 1rem 3rem 0 var(--cd);
 }
 
 .page-nav{
@@ -227,7 +227,7 @@ label,output{
 }
 
 .radio-container{
-    box-shadow: 0 2px 5px 0 var(--cd);
+    box-shadow: 0 1rem 3rem 0 var(--cd);
 
     display: flex;
     flex-direction: row;
@@ -264,7 +264,7 @@ label,output{
     grid-column: 2/3;
     grid-row:1/2;
     align-self: center;
-    box-shadow: 0 2px 5px 0 var(--cd);
+    box-shadow: 0 1rem 3rem 0 var(--cd);
 
     padding:  4vh;
     display: flex;
@@ -283,7 +283,7 @@ label,output{
     font-weight: bold;
     color : var(--cp);
     background-color: var(--cd);
-    box-shadow: 0 2px 5px 0 var(--cd);
+    box-shadow: 0 1rem 3rem 0 var(--cd);
     font-family: var(--fm);
 }
 
