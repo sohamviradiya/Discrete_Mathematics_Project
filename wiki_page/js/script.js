@@ -86,16 +86,24 @@ function inv(n){
 }
 
 //add two points
-function add(p1,p2){
-    let m=(p1.y-p2.y)*inv(p1.x-p2.x);
+function add(p1, p2) {
+    if(p1.x==0 && p1.y==0)
+        return p2;
+    else if(p1.x==0 && p1.y==0)
+        return p1;
+    else if(p1.x==p2.x)
+        return Point(0,0,prime);
+    let m=((p1.y-p2.y)*inv(p1.x-p2.x))%prime;   //possible bound error
     let x=m*m-p1.x-p2.x;
     let y=m*(p1.x-x)-p1.y;
     return new point(x,y);
 }
 
 //double a point
-function double(p){
-    let m=(3*p.x*p.x+a)*inv(2*p.y,prime);
+function double(p) {
+    if(p.y==0)
+        return new point(0,0);
+    let m=((3*p.x*p.x+a)*inv(2*p.y,prime))%prime;   //possible bound error
     let x=m*m-2*p.x;
     let y=m*(p.x-x)-p.y;
     return new point(x,y);
