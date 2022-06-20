@@ -213,33 +213,33 @@ label,output{
 
 #demo-container{
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 1fr 4fr;
     justify-items: center;
-
-}
-
-.equation-radio-container{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin:1rem;
-    align-items: center;
 }
 
 .radio-container{
     box-shadow: 0 1rem 3rem 0 var(--cd);
+    width:  12vw;
 
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.radio-button-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: calc(12vw - 2rem);
 }
 
 #prime-container{
     height: 50vh;
-    grid-column: 3/4;
+    grid-column: 2/3;
 
     align-self: center;
     display: flex;
@@ -261,7 +261,7 @@ label,output{
 }
 
 #graph-container{
-    grid-column: 2/3;
+    grid-column: 3/4;
     grid-row:1/2;
     align-self: center;
     box-shadow: 0 1rem 3rem 0 var(--cd);
