@@ -69,6 +69,48 @@
         generate_curve(a,b,prime);
     });
 
+//define points
+class point{
+    constructor(x,y){
+        this.x=(prime*x+x)%prime;
+        this.y=(prime*y+y)%prime;
+    }
+}
 
+function inv(n){
+    let t=1;
+    for(let i=0;i<prime-2;i++){
+        t=mul(t,n,prime);
+    }
+    return t;
+}
 
+//add two points
+function add(p1,p2){
+    let m=(p1.y-p2.y)*inv(p1.x-p2.x);
+    let x=m*m-p1.x-p2.x;
+    let y=m*(p1.x-x)-p1.y;
+    return new point(x,y);
+}
+
+//double a point
+function double(p){
+    let m=(3*p.x*p.x+a)*inv(2*p.y,prime);
+    let x=m*m-2*p.x;
+    let y=m*(p.x-x)-p.y;
+    return new point(x,y);
+}
+
+//multiply a point by a scalar by double and add algorithm
+function mul_point(p,n){
+    let bit=n.toString(2);
+    let result=new point(0,0);
+    for(let i=bit.length-1;i>=0;i--){
+        result=double(result);
+        if(bit[i]==='1'){
+            result=add(result,n);
+        }
+    }
+    return result;
+}
 //end
