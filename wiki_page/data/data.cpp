@@ -29,7 +29,7 @@ Point add(Point p1,Point p2,int prime){
         return p1;
     else if(p1.x==p2.x)
         return Point(0,0,prime);
-    int m=(p1.y-p2.y)*inv(p1.x-p2.x,prime);
+    int m=((p1.y-p2.y)*inv(p1.x-p2.x,prime))%prime;
     int x=m*m-p1.x-p2.x;
     int y=m*(p1.x-x)-p1.y;
     return Point(x,y,prime);

@@ -219,14 +219,26 @@ label,output{
 
 .radio-container{
     box-shadow: 0 1rem 3rem 0 var(--cd);
+    height: 50vh;
     width:  12vw;
 
+    align-self: center;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    gap: 2vh;
+
     padding-left: 1rem;
     padding-right: 1rem;
+}
+
+#prime-container{
+    grid-column: 2/3;
+}
+
+#equation-container{
+    grid-column: 1/2;
 }
 
 .radio-button-container{
@@ -235,29 +247,6 @@ label,output{
     justify-content: space-evenly;
     align-items: center;
     width: calc(12vw - 2rem);
-}
-
-#prime-container{
-    height: 50vh;
-    grid-column: 2/3;
-
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2vh;
-}
-
-#equation-container{
-    height: 50vh;
-    grid-column: 1/2;
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2vh;
 }
 
 #graph-container{
