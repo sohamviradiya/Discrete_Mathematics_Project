@@ -213,9 +213,9 @@ label,output{
 
 #demo-container{
     display: grid;
-    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-columns: 1fr 4fr 1fr;
     justify-items: center;
-    gap: -3vh;
+
 }
 
 .equation-radio-container{
@@ -239,7 +239,7 @@ label,output{
 
 #prime-container{
     height: 50vh;
-    grid-column: 1/2;
+    grid-column: 3/4;
 
     align-self: center;
     display: flex;
@@ -251,13 +251,13 @@ label,output{
 
 #equation-container{
     height: 50vh;
-    grid-column: 3/4;
-
+    grid-column: 1/2;
     align-self: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 2vh;
 }
 
 #graph-container{

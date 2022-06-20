@@ -72,15 +72,15 @@
 //define points
 class point{
     constructor(x,y){
-        this.x=(prime*x+x)%prime;
-        this.y=(prime*y+y)%prime;
+        this.x = x>0 ?(x%prime) : (prime+(x%prime))%prime;
+        this.y =  y>0 ?(y%prime) : (prime+(y%prime))%prime;
     }
 }
 
 function inv(n){
     let t=1;
     for(let i=0;i<prime-2;i++){
-        t=mul(t,n,prime);
+        t=(t*n)%prime;
     }
     return t;
 }

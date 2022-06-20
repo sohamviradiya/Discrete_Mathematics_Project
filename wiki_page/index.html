@@ -171,6 +171,22 @@
                 <h3 class="section-title"> Implementation : </h3>
                 <div id="demo-container">
 
+                    <div id="equation-container" class="radio-container">
+                        <label for="equation-container"> Equation: </label>
+                        <div class="radio-button-container">
+                            <input type="radio" value="0" name="equation" id="curve1.6" class="equation-radio">
+                            <label for="curve1.6" class="radio-label"> y<sup>2</sup> = x<sup>3</sup> +  x + 6</label>
+                        </div>
+                        <div class="radio-button-container">
+                            <input type="radio" value="1" name="equation" id="curve2.4" class="equation-radio" >
+                            <label for="curve2.4" class="radio-label"> y<sup>2</sup> = x<sup>3</sup> + 2x +4</label>
+                        </div>
+                        <div class="radio-button-container">
+                            <input type="radio" value="2" name="equation" id="curve-2.5" class="equation-radio" checked="checked">
+                            <label for="curve-2.5" class="radio-label"> y<sup>2</sup> = x<sup>3</sup> - 2x + 5 </label>
+                        </div>
+                    </div>
+
                     <div id="prime-container" class="radio-container">
                             <label for="prime-container"> Prime Number: </label>
 
@@ -188,23 +204,7 @@
                                 <input type="radio" value="2" name="prime" id="6-bit" class="prime-radio" checked>
                                 <label for="4-bit" class="radio-label"> 6-bit prime</label>
                             </div>
-                         </div>
-
-                    <div id="equation-container" class="radio-container">
-                            <label for="equation-container"> Equation: </label>
-                            <div class="equation-radio-container">
-                                <input type="radio" value="0" name="equation" id="curve1.6" class="equation-radio">
-                                <label for="curve1.6" class="radio-label"> y<sup>2</sup>=x<sup>3</sup>+x+6</label>
-                            </div>
-                            <div class="equation-radio-container">
-                                <input type="radio" value="1" name="equation" id="curve2.4" class="equation-radio" >
-                                <label for="curve2.4" class="radio-label"> y<sup>2</sup>=x<sup>3</sup>+2x+4 </label>
-                            </div>
-                            <div class="equation-radio-container">
-                                <input type="radio" value="2" name="equation" id="curve-2.5" class="equation-radio" checked="checked">
-                                <label for="curve-2.5" class="radio-label"> y<sup>2</sup>=x<sup>3</sup>-2x+5 </label>
-                            </div>
-                        </div>
+                    </div>
 
                     <div id="graph-container">
                         <button id="graph-generator"> Generate Curve </button>
