@@ -81,18 +81,18 @@
                 </p>
                 <div>
                     <div>
-                        <h4> <p> &#9830; &emsp; Key Generation &#8594;</p></h3>
-                        <p>Select p and q:~  p & q both prime , p &#8800; q</p>
-                        <p>Calculate n:~ n = p*q </p>
-                        <p>Select Integer d:~  gcd(&#8709;(n) , d) = 1 ; 1 &#60; d &#60; &#8709;(n) </p>
+                        <h4> <p> &#9830; &emsp; Key Generation &#8594;</p></h4>
+                        <p>Select p and q both prime , p &#8800; q</p>
+                        <p>Calculate n = p*q </p>
+                        <p>Select an Integer d such that gcd(&#8709;(n) , d) = 1 ; 1 &#60; d &#60; &#8709;(n) </p>
                         <p>Calculate d:~  e = d<sup>-1</sup> (mod &#8709;(n))</p>
-                        <p>Public Key:~  KU = {e, n}</p>
-                        <p>Private Key:~  KR = {d, n}</p>
+                        <p>Public Key: {e, n}</p>
+                        <p>Private Key: d</p>
                     </div>
                     <div>
                         <h4><p> &#9830; &emsp;  Encryption &#8594;</p></h4>
-                        <p>Plaintext:~ M&#60;n</p>
-                        <p>Ciphertext:~ C = M<sup>e</sup>  (mod n)</p>
+                        <p>Plaintext: T ,  T &#60; n</p>
+                        <p>Ciphertext:~ C = T<sup>e</sup>  (mod n)</p>
                     </div>
                     <div>
                         <h4><p> &#9830; &emsp; Decryption &#8594;</p></h4>
@@ -106,44 +106,46 @@
 
                 <section class="content-section" id="DHKE-section">
                     <h3 class="section-title"> Diffie–Hellman Key Exchange : </h3>
-                    <p class="section-content">
-                    <div>
-                        <p>
-                            &emsp;&emsp; Whitfield Diffie and Martin Hellman created the Diffie-Hellman algorithm in 1976. As a result, Diffie Hellman was born. Furthermore, despite its name, this algorithm is not used to encrypt data; rather, it is used to generate a secret key between the sender and the recipient.
-                        </p>
-                        <p>
-                            &emsp;&emsp;Asymmetric encryption necessitates the exchange of a private key between the data transmitter and receiver. The safe and secure transfer of the secret key between the sender and the recipient is one of the most difficult aspects of Asymmetric Encryption. During the transfer, no one should have access to or intercept the private key. The Diffie-Hellman algorithm aided this transfer or rather production of the secret key on both sides.
-                        </p>
-                    </div>
-                    <img class="image_DHKE" src="https://image2.slideserve.com/4441355/diffie-hellman-key-exchange-l.jpg" alt="DHKE" class="DHKE-image" width="100%">
-                    <div>
-                        <p>&#9830; &emsp;Let’s understand how the Diffie-Hellman Algorithm works &#8594; </p>
+                    <div class="section-content">
                         <div>
                             <p>
-                                1. Let's suppose four variables for the sake of understanding the algorithm: one prime number P, another number G with no factor in common with P, and two private values a and b.
+                                &emsp;&emsp; Whitfield Diffie and Martin Hellman created the Diffie-Hellman algorithm in 1976. As a result, Diffie Hellman was born. Furthermore, despite its name, this algorithm is not used to encrypt data; rather, it is used to generate a secret key between the sender and the recipient.
                             </p>
                             <p>
-                                2. P and G are available to the public. Two users, Alice and Bob, choose private values a and b, respectively, and generate their key for public exchange. The second person receives the key and uses it to generate a secret key. Alice and Bob now have the same secret key to encrypt with.
-                            </p>
-                            <p>
-                                3. Both Alice and Bob generates key as follows : <br>
-                                &emsp; X = G<sup>a</sup> mod P <br>
-                                &emsp; Y = G<sup>b</sup> mod P
-                            </p>
-                            <p>
-                                4. Now the keys are exchanged. Alice receives Y and Bob receives X.
-                            </p>
-                            <p>
-                                5. Secret key is generated as follows: <br>
-                                &emsp; K<sub>a</sub> = Y<sup>a</sup> mod P <br>
-                                &emsp; K<sub>b</sub> = X<sup>b</sup> mod P
-                            </p>
-                            <p>
-                                6. Algebraically, K<sub>a</sub> = K<sub>b</sub>
+                                &emsp;&emsp;Asymmetric encryption necessitates the exchange of a private key between the data transmitter and receiver. The safe and secure transfer of the secret key between the sender and the recipient is one of the most difficult aspects of Asymmetric Encryption. During the transfer, no one should have access to or intercept the private key. The Diffie-Hellman algorithm aided this transfer or rather production of the secret key on both sides.
                             </p>
                         </div>
+                        <div>
+                            <img src="https://image2.slideserve.com/4441355/diffie-hellman-key-exchange-l.jpg" alt="DHKE" class="DHKE-image" width="100%">
+                        </div>
+                        <div>
+                            <p>&#9830; &emsp;Let’s understand how the Diffie-Hellman Algorithm works &#8594; </p>
+                            <div>
+                                <p>
+                                    1. Let's suppose four variables for the sake of understanding the algorithm: one prime number P, another number G with no factor in common with P, and two private values a and b.
+                                </p>
+                                <p>
+                                    2. P and G are available to the public. Two users, Alice and Bob, choose private values a and b, respectively, and generate their key for public exchange. The second person receives the key and uses it to generate a secret key. Alice and Bob now have the same secret key to encrypt with.
+                                </p>
+                                <p>
+                                    3. Both Alice and Bob generates key as follows : <br>
+                                    &emsp; X = G<sup>a</sup> mod P <br>
+                                    &emsp; Y = G<sup>b</sup> mod P
+                                </p>
+                                <p>
+                                    4. Now the keys are exchanged. Alice receives Y and Bob receives X.
+                                </p>
+                                <p>
+                                    5. Secret key is generated as follows: <br>
+                                    &emsp; K<sub>a</sub> = Y<sup>a</sup> mod P <br>
+                                    &emsp; K<sub>b</sub> = X<sup>b</sup> mod P
+                                </p>
+                                <p>
+                                    6. Algebraically, K<sub>a</sub> = K<sub>b</sub>
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </p>
                 </section>
 
                 <div id="begin-math" class="section-break"></div>
