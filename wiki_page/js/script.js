@@ -214,7 +214,7 @@
         if(bob_output_point.x === 0 && bob_output_point.y===0){
             alert('B cannot be point at infinity');
         }
-        else if(((bob_input_point.y)**3)%prime !== (bob_input_point.x)**2+a*(bob_input_point.x)+b){
+        else if(((bob_input_point.y)**3)%prime !== ((bob_input_point.x)**2+a*(bob_input_point.x)+b)%prime){
             alert('Left Input point is not on the curve');
         }
         else {
@@ -228,7 +228,7 @@
         if(alice_output_point.x === 0 && alice_output_point.y===0){
             alert('B cannot be point at infinity');
         }
-        else if(((alice_input_point.y)**3)%prime !== (alice_input_point.x)**2+a*(alice_input_point.x)+b){
+        else if(((alice_input_point.y)**3)%prime !== ((alice_input_point.x)**2+a*(alice_input_point.x)+b)%prime){
             alert('Right Input point is not on the curve');
         }
         else {
