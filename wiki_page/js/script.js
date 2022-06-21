@@ -161,22 +161,22 @@
     const alice_point_output = document.getElementById('alice-point');
 
     bob_input_x.oninput = () => {
-        bob_input_point.x = bob_input_x.value;
+        bob_input_point.x = Number(bob_input_x.value);
         bob_x_label.innerText = `x: ${bob_input_point.x}`;
     }
 
     bob_input_y.oninput = () => {
-        bob_input_point.y = bob_input_y.value;
+        bob_input_point.y = Number(bob_input_y.value);
         bob_y_label.innerText = `y: ${bob_input_point.y}`;
     }
 
     alice_input_x.oninput = () => {
-        alice_input_point.x = alice_input_x.value;
+        alice_input_point.x = Number(alice_input_x.value);
         alice_x_label.innerText = `x: ${alice_input_point.x}`;
     }
 
     alice_input_y.oninput = () => {
-        alice_input_point.y = alice_input_y.value;
+        alice_input_point.y = Number(alice_input_y.value);
         alice_y_label.innerText = `y: ${alice_input_point.y}`;
     }
 
@@ -214,7 +214,9 @@
         if(bob_output_point.x === 0 && bob_output_point.y===0){
             alert('B cannot be point at infinity');
         }
-        else if(((bob_input_point.y)**3)%prime !== ((bob_input_point.x)**2+a*(bob_input_point.x)+b)%prime){
+        else if((Math.pow((bob_input_point.y),2) - Math.pow((bob_input_point.x),3) - a*(bob_input_point.x) - b)%prime !== 0){
+            console.log(bob_input_point);
+            console.log((Math.pow((bob_input_point.y),2) - Math.pow((bob_input_point.x),3) - a*(bob_input_point.x) - b));
             alert('Left Input point is not on the curve');
         }
         else {
@@ -228,7 +230,9 @@
         if(alice_output_point.x === 0 && alice_output_point.y===0){
             alert('B cannot be point at infinity');
         }
-        else if(((alice_input_point.y)**3)%prime !== ((alice_input_point.x)**2+a*(alice_input_point.x)+b)%prime){
+        else if((Math.pow((alice_input_point.y),2)-Math.pow((alice_input_point.x),3) - a*(alice_input_point.x) - b)%prime !== 0){
+            console.log(alice_input_point)
+            console.log((Math.pow((alice_input_point.y),2)-Math.pow((alice_input_point.x),3) - a*(alice_input_point.x) - b));
             alert('Right Input point is not on the curve');
         }
         else {
