@@ -211,14 +211,15 @@
     const alice_common_secret = document.getElementById('alice-secret');
 
     bob_secret_generator.onclick = () => {
+        let temp = new point(bob_input_point.x,bob_input_point.y);
+        let bob_secret = mul_point(temp,bob_private_key);
 
-        let bob_secret = mul_point(bob_input_point,bob_private_key);
         bob_common_secret.innerText = `Common secret: (${bob_secret.x}, ${bob_secret.y})`;
     }
 
     alice_secret_generator.onclick = () => {
-
-        let alice_secret = mul_point(alice_input_point,alice_private_key);
+        let temp= new point(alice_input_point.x,alice_input_point.y);
+        let alice_secret = mul_point(temp,alice_private_key);
         alice_common_secret.innerText = `Common secret: (${alice_secret.x}, ${alice_secret.y})`;
     }
     //end
