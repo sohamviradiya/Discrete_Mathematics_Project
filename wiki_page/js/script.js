@@ -121,6 +121,7 @@
         }
     }
 
+    const encryter = document.getElementById('encrypter');
     const bob_curve = document.getElementById('bob-curve');
     const alice_curve = document.getElementById('alice-curve');
     const bob_prime = document.getElementById('bob-prime');
@@ -145,7 +146,8 @@
    const generator_button = document.querySelector('#graph-generator');
      generator_button.addEventListener('click',() =>{
          set_curve(a,b,prime);
-        generate_curve(a,b,prime);
+         generate_curve(a,b,prime);
+         encryter.style.opacity='1';
     });
 
     let bob_input_point = new point(0,0);
@@ -188,28 +190,18 @@
     generate_bob_point.onclick = () => {
         set_curve(a,b,prime);
         generate_curve(a,b,prime);
-        bob_private_key = Math.floor((Math.random()*(prime-1)));
+        bob_private_key = 1 + Math.floor((Math.random()*(prime-2)));
         if(bob_private_key === 0)
             bob_private_key = 1;
         bob_output_point = mul_point(g_point,bob_private_key);
-        if(bob_output_point.x==0 && bob_output_point.y==0){
-            bob_private_key = Math.floor(bob_private_key/2);
-            bob_output_point = mul_point(g_point,bob_private_key);
-        }
         bob_point_output.innerText = `B: (${bob_output_point.x}, ${bob_output_point.y})`;
     }
 
     generate_alice_point.onclick = () => {
         set_curve(a,b,prime);
         generate_curve(a,b,prime);
-        alice_private_key = Math.floor((Math.random()*(prime-1)));
-        if(alice_private_key === 0)
-            alice_private_key = 1;
+        alice_private_key = 1 + Math.floor((Math.random()*(prime-2)));
         alice_output_point = mul_point(g_point,alice_private_key);
-        if(alice_output_point.x==0 && alice_output_point.y==0){
-            alice_private_key = Math.floor(alice_private_key/2);
-            alice_output_point = mul_point(g_point,alice_private_key);
-        }
         alice_point_output.innerText = `A: (${alice_output_point.x}, ${alice_output_point.y})`;
     }
 
@@ -219,11 +211,13 @@
     const alice_common_secret = document.getElementById('alice-secret');
 
     bob_secret_generator.onclick = () => {
+
         let bob_secret = mul_point(bob_input_point,bob_private_key);
         bob_common_secret.innerText = `Common secret: (${bob_secret.x}, ${bob_secret.y})`;
     }
 
     alice_secret_generator.onclick = () => {
+
         let alice_secret = mul_point(alice_input_point,alice_private_key);
         alice_common_secret.innerText = `Common secret: (${alice_secret.x}, ${alice_secret.y})`;
     }

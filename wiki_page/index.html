@@ -77,8 +77,8 @@
                 </p>
                 <p>
                     &emsp;&emsp;The "factoring problem," which is the practical difficulty of factoring the product of two huge prime numbers, is at the heart of RSA's security. The RSA problem refers to the difficulty of breaking RSA encryption. It's unclear whether it'll be as complex as the factoring problem. If a large enough key is utilised, there are no published methods to circumvent the system.
-                    <img src="https://sectigostore.com/blog/wp-content/uploads/2020/06/how-rsa-works.png" alt="RSA" class="RSA-image" width="100%">
                 </p>
+                    <div class="image-container"><img src="https://sectigostore.com/blog/wp-content/uploads/2020/06/how-rsa-works.png" alt="RSA" class="RSA-image" width="80%"></div>
                 <div>
                     <div>
                         <h4> <p> &#9830; &emsp; Key Generation &#8594;</p></h4>
@@ -115,8 +115,8 @@
                                 &emsp;&emsp;Asymmetric encryption necessitates the exchange of a private key between the data transmitter and receiver. The safe and secure transfer of the secret key between the sender and the recipient is one of the most difficult aspects of Asymmetric Encryption. During the transfer, no one should have access to or intercept the private key. The Diffie-Hellman algorithm aided this transfer or rather production of the secret key on both sides.
                             </p>
                         </div>
-                        <div>
-                            <img src="https://image2.slideserve.com/4441355/diffie-hellman-key-exchange-l.jpg" alt="DHKE" class="DHKE-image" width="100%">
+                        <div class="image-container">
+                            <img src="https://image2.slideserve.com/4441355/diffie-hellman-key-exchange-l.jpg" alt="DHKE" id="DHKE-image" width="80%">
                         </div>
                         <div>
                             <p>&#9830; &emsp;Let’s understand how the Diffie-Hellman Algorithm works &#8594; </p>
@@ -234,6 +234,7 @@
 
                 <section class="content-section" id="webapp-section">
                     <h3 class="section-title"> Implementation : </h3>
+
                     <div id="demo-container">
 
                         <div id="equation-container" class="radio-container">
@@ -247,7 +248,7 @@
                                 <label for="curve2.4" class="radio-label"> y<sup>2</sup> = x<sup>3</sup> + 2x +4</label>
                             </div>
                             <div class="radio-button-container">
-                                <input type="radio" value="2" name="equation" id="curve-2.5" class="equation-radio" checked="checked">
+                                <input type="radio" value="2" name="equation" id="curve-2.5" class="equation-radio">
                                 <label for="curve-2.5" class="radio-label"> y<sup>2</sup> = x<sup>3</sup> - 2x + 5 </label>
                             </div>
                         </div>
@@ -266,7 +267,7 @@
                                 </div>
 
                                 <div class="radio-button-container">
-                                    <input type="radio" value="2" name="prime" id="6-bit" class="prime-radio" checked>
+                                    <input type="radio" value="2" name="prime" id="6-bit" class="prime-radio">
                                     <label for="4-bit" class="radio-label"> 6-bit prime</label>
                                 </div>
                         </div>
@@ -277,14 +278,14 @@
                         </div>
                     </div>
 
-                    <div id="encrypter" >
+                    <div id="encrypter">
                             <div id ="bob" class="encrypter-module">
                                 <h3 class="module-title"> Bob </h3>
                                 <button id="bob-generate-point" class="point-generator"> Generate Point </button>
                                 <output class="equation-output" id="bob-curve"></output>
                                 <output class="prime-output" id="bob-prime"></output>
                                 <output class="point-output" id="bob-point"></output>
-                                <button id="bob-generate-secret" class="secret-generator"> Generate Secret </button>
+                                <button id="bob-secret-generator" class="secret-generator"> Generate Secret </button>
                                 <div class="point-input-container">
                                     <label for="bob-input-x" id="bob-x-label" class="point-input-label"> x </label>
                                     <input type="range" min="0" max="16" step="1" id="bob-input-x" class="encrypter-input-x">
@@ -301,7 +302,7 @@
                                 <output class="equation-output" id="alice-curve"></output>
                                 <output class="prime-output" id="alice-prime"></output>
                                 <output class="point-output" id="alice-point"></output>
-                                <button id="alice-generate-secret" class="secret-generator"> Generate Secret </button>
+                                <button id="alice-secret-generator" class="secret-generator"> Generate Secret </button>
                                 <div class="point-input-container">
                                     <label for="alice-input-x" id="alice-x-label" class="point-input-label"> x </label>
                                     <input type="range" min="0" max="17" id="alice-input-x" step="1" class="encrypter-input-x">

@@ -174,6 +174,13 @@ p{
     line-height: 3.5rem;
 }
 
+.image-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+}
+
 i{
     font-weight: 800;
     color: var(--ca);
@@ -183,8 +190,8 @@ i{
     height: 10vh;
 }
 
-.content-section{
-
+img{
+    border: 0.2rem solid var(--cl);
 }
 
 .row_label{
@@ -287,7 +294,7 @@ label,output{
 
 #encrypter{
     margin-top: 10vh;
-
+    opacity: 0;
     height: 54vh;
     width: 75vw;
 
@@ -298,6 +305,8 @@ label,output{
     gap: 1vh;
     padding : 2vh;
 }
+
+
 
 .encrypter-module{
     height: 50vh;
