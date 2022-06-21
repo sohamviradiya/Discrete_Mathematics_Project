@@ -1,27 +1,88 @@
 //begin
-    const root=document.querySelector(':root');
-
-//prime number
-    let prime_radio=document.querySelectorAll('.prime-radio');
-    let prime= 17;
-    let prime_array = [13, 31, 61] ;
-    prime_radio.forEach(function(radio){
-        radio.addEventListener('click',() =>{
-            prime = prime_array[Number(radio.value)];
-            console.log(`selected prime: ${prime}`);
+        //prime number
+        let prime_radio=document.querySelectorAll('.prime-radio');
+        let prime= 17;
+        let prime_array = [13, 31, 61] ;
+        prime_radio.forEach(function(radio){
+            radio.addEventListener('click',() =>{
+                prime = prime_array[Number(radio.value)];
+                console.log(`selected prime: ${prime}`);
+            });
         });
-    });
+
+//math
+//define points
+    class point{
+        constructor(x,y){
+            this.x = x>0 ?(x%prime) : (prime+(x%prime))%prime;
+            this.y =  y>0 ?(y%prime) : (prime+(y%prime))%prime;
+        }
+    }
+
+    function inv(n){
+        let t=1;
+        for(let i=0;i<prime-2;i++){
+            t=(t*n)%prime;
+        }
+        return t;
+    }
+
+    //add two points
+    function add(p1, p2) {
+        if(p1.x===0 && p1.y===0)
+            return p2;
+        else if(p2.x===0 && p2.y===0)
+            return p1;
+        else if(p1.x===p2.x)
+            return new point(0,0);
+        let m=((p1.y-p2.y)*inv(p1.x-p2.x))%prime;   //possible bound error
+        let x=m*m-p1.x-p2.x;
+        let y=m*(p1.x-x)-p1.y;
+        return new point(x,y);
+    }
+
+    //double a point
+    function mulx2(p) {
+        if(p.y===0)
+            return new point(0,0);
+        let m=((3*p.x*p.x+a)*inv(2*p.y))%prime;   //possible bound error
+        let x=m*m-2*p.x;
+        let y=m*(p.x-x)-p.y;
+        return new point(x,y);
+    }
+
+    //multiply a point by a scalar by double and add algorithm
+    function mul_point(p,n){
+        let bit=n.toString(2);
+        let result=new point(0,0);
+        for(let i=bit.length-1;i>=0;i--){
+            let temp = mulx2(result);
+            result.x = temp.x;
+            result.y = temp.y;
+            if(bit[i]=='1'){
+                result=add(result,p);
+            }
+        }
+        return result;
+    }
+
+//DOM
+    const root=document.querySelector(':root');
 
     //curve
     let curve_radio=document.querySelectorAll('.equation-radio');
     let a = 1;
     let b = 2;
-    let curve_array = [[1,6], [2,4], [(-2),5]];
+    let curve_array = [[1,6], [2,4], [-2,5]];
+    let g_point_array = [[2,4],[2,4],[1,2]];
+    let g_point = new point(0,0);
     curve_radio.forEach(function(radio){
         radio.addEventListener('click',() =>{
             a = curve_array[Number(radio.value)][0];
             b = curve_array[Number(radio.value)][1];
             console.log(` selected (a,b) pair: (${a}, ${b})`);
+            g_point= new point(g_point_array[Number(radio.value)][0],g_point_array[Number(radio.value)][1]);
+            console.log(` selected g point: (${g_point.x}, ${g_point.y})`);
         });
     });
 
@@ -54,12 +115,9 @@
                 cell.style.height = row.style.height;
                 cell.style.backgroundColor = ( (y**2-x**3-a*x-b)%p === 0 )? '#0000FF': '#FFFFFF';
                 cell.style.border="1px solid black";
-                
                 row.appendChild(cell);
             }
-
             canvas.appendChild(row);
-
         }
     }
 
@@ -83,8 +141,6 @@
             alice_input_y.setAttribute('max',`${(prime)-1}`);
         }
 
-
-
     //generate curve
    const generator_button = document.querySelector('#graph-generator');
      generator_button.addEventListener('click',() =>{
@@ -92,88 +148,83 @@
         generate_curve(a,b,prime);
     });
 
-//define points
-class point{
-    constructor(x,y){
-        this.x = x>0 ?(x%prime) : (prime+(x%prime))%prime;
-        this.y =  y>0 ?(y%prime) : (prime+(y%prime))%prime;
+    let bob_input_point = new point(0,0);
+    let alice_input_point = new point(0,0);
+
+    const bob_x_label = document.getElementById('bob-x-label');
+    const bob_y_label = document.getElementById('bob-y-label');
+    const alice_x_label = document.getElementById('alice-x-label');
+    const alice_y_label = document.getElementById('alice-y-label');
+    const bob_point_output = document.getElementById('bob-point');
+    const alice_point_output = document.getElementById('alice-point');
+
+    bob_input_x.oninput = () => {
+        bob_input_point.x = bob_input_x.value;
+        bob_x_label.innerText = `x: ${bob_input_point.x}`;
     }
-}
 
-function inv(n){
-    let t=1;
-    for(let i=0;i<prime-2;i++){
-        t=(t*n)%prime;
+    bob_input_y.oninput = () => {
+        bob_input_point.y = bob_input_y.value;
+        bob_y_label.innerText = `y: ${bob_input_point.y}`;
     }
-    return t;
-}
 
-//add two points
-function add(p1, p2) {
-    if(p1.x===0 && p1.y===0)
-        return p2;
-    else if(p1.x===0 && p1.y===0)
-        return p1;
-    else if(p1.x===p2.x)
-        return new point(0,0);
-    let m=((p1.y-p2.y)*inv(p1.x-p2.x))%prime;   //possible bound error
-    let x=m*m-p1.x-p2.x;
-    let y=m*(p1.x-x)-p1.y;
-    return new point(x,y);
-}
+    alice_input_x.oninput = () => {
+        alice_input_point.x = alice_input_x.value;
+        alice_x_label.innerText = `x: ${alice_input_point.x}`;
+    }
 
-//double a point
-function double(p) {
-    if(p.y===0)
-        return new point(0,0);
-    let m=((3*p.x*p.x+a)*inv(2*p.y,prime))%prime;   //possible bound error
-    let x=m*m-2*p.x;
-    let y=m*(p.x-x)-p.y;
-    return new point(x,y);
-}
+    alice_input_y.oninput = () => {
+        alice_input_point.y = alice_input_y.value;
+        alice_y_label.innerText = `y: ${alice_input_point.y}`;
+    }
 
-//multiply a point by a scalar by double and add algorithm
-function mul_point(p,n){
-    let bit=n.toString(2);
-    let result=new point(0,0);
-    for(let i=bit.length-1;i>=0;i--){
-        result=double(result);
-        if(bit[i]==='1'){
-            result=add(result,n);
+    const generate_bob_point = document.getElementById('bob-generate-point');
+    const generate_alice_point = document.getElementById('alice-generate-point');
+    let alice_private_key = 1;
+    let bob_private_key = 1;
+    let alice_output_point = new point(0,0);
+    let bob_output_point = new point(0,0);
+
+    generate_bob_point.onclick = () => {
+        set_curve(a,b,prime);
+        generate_curve(a,b,prime);
+        bob_private_key = Math.floor((Math.random()*(prime-1)));
+        if(bob_private_key === 0)
+            bob_private_key = 1;
+        bob_output_point = mul_point(g_point,bob_private_key);
+        if(bob_output_point.x==0 && bob_output_point.y==0){
+            bob_private_key = Math.floor(bob_private_key/2);
+            bob_output_point = mul_point(g_point,bob_private_key);
         }
+        bob_point_output.innerText = `B: (${bob_output_point.x}, ${bob_output_point.y})`;
     }
-    return result;
-}
 
-let bob_x=0
-let bob_y=0
-let alice_x=0
-let alice_y=0
+    generate_alice_point.onclick = () => {
+        set_curve(a,b,prime);
+        generate_curve(a,b,prime);
+        alice_private_key = Math.floor((Math.random()*(prime-1)));
+        if(alice_private_key === 0)
+            alice_private_key = 1;
+        alice_output_point = mul_point(g_point,alice_private_key);
+        if(alice_output_point.x==0 && alice_output_point.y==0){
+            alice_private_key = Math.floor(alice_private_key/2);
+            alice_output_point = mul_point(g_point,alice_private_key);
+        }
+        alice_point_output.innerText = `A: (${alice_output_point.x}, ${alice_output_point.y})`;
+    }
 
-const bob_x_label = document.getElementById('bob-x-label');
-const bob_y_label = document.getElementById('bob-y-label');
-const alice_x_label = document.getElementById('alice-x-label');
-const alice_y_label = document.getElementById('alice-y-label');
+    const bob_secret_generator = document.getElementById('bob-secret-generator');
+    const alice_secret_generator = document.getElementById('alice-secret-generator');
+    const bob_common_secret = document.getElementById('bob-secret');
+    const alice_common_secret = document.getElementById('alice-secret');
 
-bob_input_x.oninput = () => {
-    bob_x = Number(bob_input_x.value);
-    bob_x_label.innerText = `x: ${bob_x}`;
-}
+    bob_secret_generator.onclick = () => {
+        let bob_secret = mul_point(bob_input_point,bob_private_key);
+        bob_common_secret.innerText = `Common secret: (${bob_secret.x}, ${bob_secret.y})`;
+    }
 
-bob_input_y.oninput = () => {
-    bob_y = Number(bob_input_y.value);
-    bob_y_label.innerText = `y: ${bob_y}`;
-}
-
-alice_input_x.oninput = () => {
-    alice_x = Number(alice_input_x.value);
-    alice_x_label.innerText = `x: ${alice_x}`;
-}
-
-alice_input_y.oninput = () => {
-    alice_y = Number(alice_input_y.value);
-    alice_y_label.innerText = `y: ${alice_y}`;
-}
-
-
-//end
+    alice_secret_generator.onclick = () => {
+        let alice_secret = mul_point(alice_input_point,alice_private_key);
+        alice_common_secret.innerText = `Common secret: (${alice_secret.x}, ${alice_secret.y})`;
+    }
+    //end
