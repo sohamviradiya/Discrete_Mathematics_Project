@@ -190,7 +190,7 @@
     generate_bob_point.onclick = () => {
         set_curve(a,b,prime);
         generate_curve(a,b,prime);
-        bob_private_key = 1 + Math.floor((Math.random()*(prime-2)));
+        bob_private_key = (Date.now())%prime;
         if(bob_private_key === 0)
             bob_private_key = 1;
         bob_output_point = mul_point(g_point,bob_private_key);
@@ -200,7 +200,7 @@
     generate_alice_point.onclick = () => {
         set_curve(a,b,prime);
         generate_curve(a,b,prime);
-        alice_private_key = 1 + Math.floor((Math.random()*(prime-2)));
+        alice_private_key = (Date.now())%prime;
         alice_output_point = mul_point(g_point,alice_private_key);
         alice_point_output.innerText = `A: (${alice_output_point.x}, ${alice_output_point.y})`;
     }
@@ -211,15 +211,30 @@
     const alice_common_secret = document.getElementById('alice-secret');
 
     bob_secret_generator.onclick = () => {
-        let temp = new point(bob_input_point.x,bob_input_point.y);
-        let bob_secret = mul_point(temp,bob_private_key);
-
-        bob_common_secret.innerText = `Common secret: (${bob_secret.x}, ${bob_secret.y})`;
+        if(bob_output_point.x === 0 && bob_output_point.y===0){
+            alert('B cannot be point at infinity');
+        }
+        else if(((bob_input_point.y)**3)%prime !== (bob_input_point.x)**2+a*(bob_input_point.x)+b){
+            alert('Left Input point is not on the curve');
+        }
+        else {
+            let temp = new point(bob_input_point.x, bob_input_point.y);
+            let bob_secret = mul_point(temp, bob_private_key);
+            bob_common_secret.innerText = `Common secret: (${bob_secret.x}, ${bob_secret.y})`;
+        }
     }
 
     alice_secret_generator.onclick = () => {
-        let temp= new point(alice_input_point.x,alice_input_point.y);
-        let alice_secret = mul_point(temp,alice_private_key);
-        alice_common_secret.innerText = `Common secret: (${alice_secret.x}, ${alice_secret.y})`;
+        if(alice_output_point.x === 0 && alice_output_point.y===0){
+            alert('B cannot be point at infinity');
+        }
+        else if(((alice_input_point.y)**3)%prime !== (alice_input_point.x)**2+a*(alice_input_point.x)+b){
+            alert('Right Input point is not on the curve');
+        }
+        else {
+            let temp = new point(alice_input_point.x, alice_input_point.y);
+            let alice_secret = mul_point(temp, alice_private_key);
+            alice_common_secret.innerText = `Common secret: (${alice_secret.x}, ${alice_secret.y})`;
+        }
     }
     //end
