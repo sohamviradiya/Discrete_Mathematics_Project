@@ -277,8 +277,39 @@
                         </div>
                     </div>
 
-                    <div id="encrypter">
-                            <!--TO DO add encrypter-->
+                    <div id="encrypter" >
+                            <div id ="bob" class="encrypter-module">
+                                <h3 class="module-title"> Bob </h3>
+                                <button id="alice-generate-point" class="point-generator"> Generate Point </button>
+                                <output class="equation-output" id="bob-curve"></output>
+                                <output class="prime-output" id="bob-prime"></output>
+                                <output class="point-output" id="bob-point"></output>
+                                <div class="point-input-container">
+                                    <label for="bob-input-x" id="bob-x-label" class="point-input-label"> x </label>
+                                    <input type="range" min="0" max="16" step="1" id="bob-input-x" class="encrypter-input-x">
+                                </div>
+                                <div class="point-input-container">
+                                    <label for="bob-input-y" id="bob-y-label" class="point-input-label"> y </label>
+                                    <input type="range" min="0" max="16" step="1" id="bob-input-y" class="encrypter-input-y">
+                                </div>
+                                <output class="comman-secret"></output>
+                            </div>
+                            <div id ="alice"  class="encrypter-module">
+                                <h3 class="module-title"> Alice </h3>
+                                <button id="alice-generate-point" class="point-generator"> Generate Point </button>
+                                <output class="equation-output" id="alice-curve"></output>
+                                <output class="prime-output" id="alice-prime"></output>
+                                <output class="point-output" id="alice-point"></output>
+                                <div class="point-input-container">
+                                    <label for="alice-input-x" id="alice-x-label" class="point-input-label"> x </label>
+                                    <input type="range" min="0" max="17" id="alice-input-x" step="1" class="encrypter-input-x">
+                                </div>
+                                <div class="point-input-container">
+                                    <label for="alice-input-y" id="alice-y-label" class="point-input-label"> y </label>
+                                    <input type="range" min="0" max="17" step="1" id="alice-input-y" class="encrypter-input-y">
+                                </div>
+                                <output class="comman-secret"></output>
+                            </div>
                     </div>
                 </section>
             </div>

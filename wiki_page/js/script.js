@@ -63,9 +63,32 @@
         }
     }
 
+    const bob_curve = document.getElementById('bob-curve');
+    const alice_curve = document.getElementById('alice-curve');
+    const bob_prime = document.getElementById('bob-prime');
+    const alice_prime = document.getElementById('alice-prime');
+    const bob_input_x = document.getElementById('bob-input-x');
+    const bob_input_y = document.getElementById('bob-input-y');
+    const alice_input_x = document.getElementById('alice-input-x');
+    const alice_input_y = document.getElementById('alice-input-y');
+
+    function set_curve(a,b,prime){
+            bob_prime.innerText = `Prime: ${prime}`;
+            bob_curve.innerHTML =   ` y<sup>2</sup> &equiv; x<sup>3</sup> + ${a}x + ${b} (mod ${prime})`;
+            alice_prime.innerText = `Prime: ${prime}`;
+            alice_curve.innerHTML = ` y<sup>2</sup>  &equiv; x<sup>3</sup> + ${a}x + ${b} (mod ${prime})`;
+            bob_input_x.setAttribute('max',`${(prime)-1}`);
+            bob_input_y.setAttribute('max',`${(prime)-1}`);
+            alice_input_x.setAttribute('max',`${(prime)-1}`);
+            alice_input_y.setAttribute('max',`${(prime)-1}`);
+        }
+
+
+
     //generate curve
    const generator_button = document.querySelector('#graph-generator');
      generator_button.addEventListener('click',() =>{
+         set_curve(a,b,prime);
         generate_curve(a,b,prime);
     });
 
@@ -121,4 +144,36 @@ function mul_point(p,n){
     }
     return result;
 }
+
+let bob_x=0
+let bob_y=0
+let alice_x=0
+let alice_y=0
+
+const bob_x_label = document.getElementById('bob-x-label');
+const bob_y_label = document.getElementById('bob-y-label');
+const alice_x_label = document.getElementById('alice-x-label');
+const alice_y_label = document.getElementById('alice-y-label');
+
+bob_input_x.oninput = () => {
+    bob_x = Number(bob_input_x.value);
+    bob_x_label.innerText = `x: ${bob_x}`;
+}
+
+bob_input_y.oninput = () => {
+    bob_y = Number(bob_input_y.value);
+    bob_y_label.innerText = `y: ${bob_y}`;
+}
+
+alice_input_x.oninput = () => {
+    alice_x = Number(alice_input_x.value);
+    alice_x_label.innerText = `x: ${alice_x}`;
+}
+
+alice_input_y.oninput = () => {
+    alice_y = Number(alice_input_y.value);
+    alice_y_label.innerText = `y: ${alice_y}`;
+}
+
+
 //end

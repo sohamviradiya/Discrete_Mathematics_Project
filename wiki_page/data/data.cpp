@@ -67,7 +67,7 @@ int main(){
     cout<<"Enter a,b,prime: ";
     vector <Point> points;
     cin>>a>>b>>prime;
-    Point p(4,3,13);
+    Point p(2,4,61);
     
     for(int i = 1;i<prime;i++){
         Point pi = mul(p, i, a, prime);
