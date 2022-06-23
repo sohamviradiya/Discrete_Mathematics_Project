@@ -261,15 +261,18 @@
         if(bob_output_point.x === 0 && bob_output_point.y===0){
             alert('B cannot be point at infinity');
         }
-        else if(pointarr.includes([bob_input_point.x, bob_input_point.y])){
-            bob_input= 1+pointarr.indexOf([bob_input_point.x,bob_input_point.y]);
-            let bob_secret = new point(0,0);
-            bob_secret.x = pointarr[(bob_input*bob_private_key-1)%pointarr.length][0];
-            bob_secret.y = pointarr[(bob_input*bob_private_key-1)%pointarr.length][1];
-            bob_common_secret.innerText = `R: (${bob_secret.x}, ${bob_secret.y})`;
-        }
-        else {
-            console.log(bob_input_point);
+        else{
+            for(let i=0; i<pointarr.length; i++) {
+                if(pointarr[i][0] === bob_input_point.x && pointarr[i][1] === bob_input_point.y) {
+                    bob_input = i+1;
+                    let bob_secret = new point(0,0);
+                    bob_secret.x = pointarr[(bob_input*bob_private_key-1)%pointarr.length][0];
+                    bob_secret.y = pointarr[(bob_input*bob_private_key-1)%pointarr.length][1];
+                    bob_common_secret.innerText = `R: (${bob_secret.x}, ${bob_secret.y})`;
+                    return;
+                }
+            }
+            console.log(alice_input_point);
             console.log(pointarr);
             alert('Invalid point');
         }
@@ -279,14 +282,17 @@
         if(alice_output_point.x === 0 && alice_output_point.y===0){
             alert('A cannot be point at infinity');
         }
-        else if(pointarr.includes([alice_input_point.x, alice_input_point.y])){
-            alice_input= 1+pointarr.indexOf([alice_input_point.x,alice_input_point.y]);
-            let alice_secret = new point(0,0);
-            alice_secret.x = pointarr[(alice_input*alice_private_key-1)%pointarr.length][0];
-            alice_secret.y = pointarr[(alice_input*alice_private_key-1)%pointarr.length][1];
-            alice_common_secret.innerText = `R: (${alice_secret.x}, ${alice_secret.y})`;
-        }
         else {
+            for(let i=0; i<pointarr.length; i++) {
+                if(pointarr[i][0] === alice_input_point.x && pointarr[i][1] === alice_input_point.y) {
+                    alice_input = i+1;
+                    let alice_secret = new point(0,0);
+                    alice_secret.x = pointarr[(alice_input*alice_private_key-1)%pointarr.length][0];
+                    alice_secret.y = pointarr[(alice_input*alice_private_key-1)%pointarr.length][1];
+                    alice_common_secret.innerText = `R: (${alice_secret.x}, ${alice_secret.y})`;
+                    return;
+                }
+            }
             console.log(alice_input_point);
             console.log(pointarr);
             alert('Invalid point');
