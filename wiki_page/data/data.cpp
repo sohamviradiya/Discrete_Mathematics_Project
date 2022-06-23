@@ -67,8 +67,10 @@ int main(){
     cout<<"Enter a,b,prime: ";
     vector <Point> points;
     cin>>a>>b>>prime;
-    Point p(2,4,61);
-    
+    cout << "enter point: ";
+    int x,y;
+    cin>>x>>y;
+    Point p(x,y,prime);
     for(int i = 1;i<prime;i++){
         Point pi = mul(p, i, a, prime);
         if(pi.x==0 && pi.y==0)
@@ -80,4 +82,13 @@ int main(){
         cout<<points[i].x<<" "<<points[i].y<<endl;
     }
     return 0;
+    // int count = 0;
+    // for(int i=0;i<prime;i++){
+    //     for(int j=0;j<prime;j++){
+    //         if((j*j)%prime==i*i*i+a*a+b){
+    //             cout<<i<<" "<<j<<endl;
+    //             count += 1;
+    //         }
+    // }
+    // cout<<count<<endl;
 }
