@@ -73,6 +73,7 @@
     let curve_radio=document.querySelectorAll('.equation-radio');
     let a = 1;
     let b = 2;
+    let pointarr = [[4, 6], [1, 2], [10, 3], [16, 0], [10, 14], [1, 15], [4, 11], [0, 0]];
     let curve_array = [[1,6], [2,4], [-2,5]];
     let g_point_array = [[2,4],[2,4],[1,2]];
     let g_point = new point(0,0);
@@ -81,8 +82,6 @@
             a = curve_array[Number(radio.value)][0];
             b = curve_array[Number(radio.value)][1];
             console.log(` selected (a,b) pair: (${a}, ${b})`);
-            g_point= new point(g_point_array[Number(radio.value)][0],g_point_array[Number(radio.value)][1]);
-            console.log(` selected g point: (${g_point.x}, ${g_point.y})`);
         });
     });
 
@@ -121,7 +120,7 @@
         }
     }
 
-    const encryter = document.getElementById('encrypter');
+    const encrypter = document.getElementById('encrypter');
     const bob_curve = document.getElementById('bob-curve');
     const alice_curve = document.getElementById('alice-curve');
     const bob_prime = document.getElementById('bob-prime');
@@ -139,15 +138,63 @@
             bob_input_x.setAttribute('max',`${(prime)-1}`);
             bob_input_y.setAttribute('max',`${(prime)-1}`);
             alice_input_x.setAttribute('max',`${(prime)-1}`);
-            alice_input_y.setAttribute('max',`${(prime)-1}`);
-        }
+            alice_input_y.setAttribute('max', `${(prime) - 1}`);
 
+        if (a === 1 && b === 6) {
+            if (prime === 13) {
+                pointarr = [[2, 4], [9, 9], [11, 10], [12, 11], [3, 7], [4, 3], [4, 10], [3, 6], [12, 2], [11, 3], [9, 4], [2, 9], [0, 0]];
+                console.log(`cofactor: 1`);
+            }
+            else if (prime === 31) {
+                pointarr = [[2, 4], [3, 6], [30, 2], [27, 0], [30, 29], [3, 25], [2, 27], [0, 0]];
+                console.log(`cofactor: 4`);
+            }
+            else if (prime === 61) {
+                pointarr = [[2, 4], [32, 54], [23, 22], [33, 13], [45, 15], [30, 47], [54, 12], [57, 11], [22, 60], [18, 0], [22, 1], [57, 50], [54, 49], [30, 14], [45, 46], [33, 48], [23, 39], [32, 7], [2, 57], [0, 0]];
+                console.log(`cofactor: 3`);
+            }
+        }
+        else if (a === 2 && b === 4) {
+            if (prime === 13) {
+                pointarr = [[2, 4], [8, 5], [7, 6], [0, 2], [12, 12], [9, 6], [5, 10], [10, 6], [10, 7], [5, 3], [9, 7], [12, 1], [0, 0]];
+                console.log(`cofactor: 1.3`);
+            }
+            else if (prime === 31) {
+                pointarr = [[2, 4], [1, 21], [7, 19], [0, 2], [30, 30], [19, 9], [28, 23], [8, 25], [10, 30], [16, 28], [21, 21], [24, 22], [9, 10], [22, 1], [4, 18], [12, 19], [27, 5], [27, 26], [12, 12], [4, 13], [22, 30], [9, 21], [24, 9], [21, 10], [16, 3], [10, 1], [8, 6], [28, 8], [19, 22], [30, 1], [0, 0]];
+                console.log(`cofactor: 1.1`);
+            }
+            else if (prime === 61) {
+                pointarr = [[2, 4], [41, 4], [18, 57], [26, 8], [11, 25], [6, 7], [4, 25], [28, 28], [12, 29], [38, 28], [35, 35], [46, 36], [10, 29], [54, 47], [9, 43], [30, 23], [16, 17], [56, 33], [60, 1], [0, 59], [7, 42], [39, 32], [40, 20], [55, 9], [53, 5], [42, 0], [53, 56], [55, 52], [40, 41], [39, 29], [7, 19], [0, 2], [60, 60], [56, 28], [16, 44], [30, 38], [9, 18], [54, 14], [10, 32], [46, 25], [35, 26], [38, 33], [12, 32], [28, 33], [4, 36], [6, 54], [11, 36], [26, 53], [18, 4], [41, 57], [2, 57], [0, 0]];
+                console.log(`cofactor: 1`);
+            }
+        }
+        else if (a === -2 && b === 5) {
+            if (prime === 13) {
+                pointarr = [[1, 2], [7, 3], [9, 1], [2, 3], [11, 1], [4, 10], [5, 9], [6, 12], [10, 6], [3, 0], [10, 7], [6, 1], [0, 0]];
+                console.log(`cofactor: 1.5`);
+            }
+            else if (prime === 31) {
+                pointarr = [[1, 2], [0, 6], [15, 23], [25, 24], [25, 7], [15, 8], [0, 25], [1, 29], [0, 0]];
+                console.log(`cofactor: 3`);
+            }
+            else if (prime === 61) {
+                pointarr = [[1, 2], [40, 34], [8, 47], [51, 60], [0, 26], [26, 49], [43, 2], [17, 59], [24, 19], [49, 58], [31, 24], [13, 38], [56, 16], [23, 29], [53, 34], [46, 36], [29, 27], [9, 17], [4, 0], [9, 44], [29, 34], [46, 25], [53, 27], [23, 32], [56, 45], [13, 23], [31, 37], [49, 3], [24, 42], [17, 2], [43, 59], [26, 12], [0, 35], [51, 1], [8, 14], [40, 27], [1, 59], [0, 0]];
+                console.log(`cofactor: 2`);
+            }
+        }
+        }
+    let g_index=1;
     //generate curve
    const generator_button = document.querySelector('#graph-generator');
      generator_button.addEventListener('click',() =>{
          set_curve(a,b,prime);
-         generate_curve(a,b,prime);
-         encryter.style.opacity='1';
+         generate_curve(a, b, prime);
+         g_point= new point(0,0);
+         g_index= Date.now()%pointarr.length;
+         g_point.x=pointarr[g_index-1][0];
+         g_point.y=pointarr[g_index-1][1];
+         console.log(`g_point: ${g_point.x}, ${g_point.y}`);
+         encrypter.style.opacity='1';
     });
 
     let bob_input_point = new point(0,0);
@@ -159,6 +206,20 @@
     const alice_y_label = document.getElementById('alice-y-label');
     const bob_point_output = document.getElementById('bob-point');
     const alice_point_output = document.getElementById('alice-point');
+    const generate_bob_point = document.getElementById('bob-generate-point');
+    const generate_alice_point = document.getElementById('alice-generate-point');
+    const bob_secret_generator = document.getElementById('bob-secret-generator');
+    const alice_secret_generator = document.getElementById('alice-secret-generator');
+    const bob_common_secret = document.getElementById('bob-secret');
+    const alice_common_secret = document.getElementById('alice-secret');
+    let bob_private_key = 1;
+    let alice_private_key = 1;
+    let bob_output_point = new point(0,0);
+    let alice_output_point = new point(0,0);
+    let bob_output = 1;
+    let alice_output = 1;
+    let bob_input=1;
+    let alice_input=1;
 
     bob_input_x.oninput = () => {
         bob_input_point.x = Number(bob_input_x.value);
@@ -180,67 +241,55 @@
         alice_y_label.innerText = `y: ${alice_input_point.y}`;
     }
 
-    const generate_bob_point = document.getElementById('bob-generate-point');
-    const generate_alice_point = document.getElementById('alice-generate-point');
-    let alice_private_key = 1;
-    let bob_private_key = 1;
-    let alice_output_point = new point(0,0);
-    let bob_output_point = new point(0,0);
-
     generate_bob_point.onclick = () => {
-        set_curve(a,b,prime);
-        generate_curve(a,b,prime);
-        bob_private_key = Number(new Date())%prime;
-        if(bob_private_key === 0)
-            bob_private_key = 1;
-        bob_output_point = mul_point(g_point,bob_private_key);
+        bob_private_key = (Date.now())%prime;
+        bob_output = g_index*bob_private_key;
+        bob_output_point.x = pointarr[(bob_output-1)%pointarr.length][0];
+        bob_output_point.y = pointarr[(bob_output-1)%pointarr.length][1];
         bob_point_output.innerText = `B: (${bob_output_point.x}, ${bob_output_point.y})`;
     }
 
     generate_alice_point.onclick = () => {
-        set_curve(a,b,prime);
-        generate_curve(a,b,prime);
-        alice_private_key = Number(new Date)%prime;
-        alice_output_point = mul_point(g_point,alice_private_key);
+        alice_private_key = (Date.now())%prime;
+        alice_output = g_index*alice_private_key;
+        alice_output_point.x = pointarr[(alice_output-1)%pointarr.length][0];
+        alice_output_point.y = pointarr[(alice_output-1)%pointarr.length][1];
         alice_point_output.innerText = `A: (${alice_output_point.x}, ${alice_output_point.y})`;
     }
-
-    const bob_secret_generator = document.getElementById('bob-secret-generator');
-    const alice_secret_generator = document.getElementById('alice-secret-generator');
-    const bob_common_secret = document.getElementById('bob-secret');
-    const alice_common_secret = document.getElementById('alice-secret');
 
     bob_secret_generator.onclick = () => {
         if(bob_output_point.x === 0 && bob_output_point.y===0){
             alert('B cannot be point at infinity');
         }
-        else if((Math.pow((bob_input_point.y),2) - Math.pow((bob_input_point.x),3) - a*(bob_input_point.x) - b)%prime !== 0){
-            console.log(bob_input_point);
-            console.log((Math.pow((bob_input_point.y),2) - Math.pow((bob_input_point.x),3) - a*(bob_input_point.x) - b));
-            alert('Left Input point is not on the curve');
+        else if(pointarr.includes([bob_input_point.x, bob_input_point.y])){
+            bob_input= 1+pointarr.indexOf([bob_input_point.x,bob_input_point.y]);
+            let bob_secret = new point(0,0);
+            bob_secret.x = pointarr[(bob_input*bob_private_key-1)%pointarr.length][0];
+            bob_secret.y = pointarr[(bob_input*bob_private_key-1)%pointarr.length][1];
+            bob_common_secret.innerText = `R: (${bob_secret.x}, ${bob_secret.y})`;
         }
         else {
-            let temp = new point(bob_input_point.x, bob_input_point.y);
-            let bob_secret = mul_point(g_point, (bob_private_key*alice_private_key)%prime);
-            bob_common_secret.innerText = `Common secret: (${bob_secret.x}, ${bob_secret.y})`;
+            console.log(bob_input_point);
+            console.log(pointarr);
+            alert('Invalid point');
         }
     }
 
     alice_secret_generator.onclick = () => {
-
         if(alice_output_point.x === 0 && alice_output_point.y===0){
-            alert('B cannot be point at infinity');
+            alert('A cannot be point at infinity');
         }
-        else if((Math.pow((alice_input_point.y),2)-Math.pow((alice_input_point.x),3) - a*(alice_input_point.x) - b)%prime !== 0){
-            console.log(alice_input_point)
-            console.log((Math.pow((alice_input_point.y),2)-Math.pow((alice_input_point.x),3) - a*(alice_input_point.x) - b));
-            alert('Right Input point is not on the curve');
+        else if(pointarr.includes([alice_input_point.x, alice_input_point.y])){
+            alice_input= 1+pointarr.indexOf([alice_input_point.x,alice_input_point.y]);
+            let alice_secret = new point(0,0);
+            alice_secret.x = pointarr[(alice_input*alice_private_key-1)%pointarr.length][0];
+            alice_secret.y = pointarr[(alice_input*alice_private_key-1)%pointarr.length][1];
+            alice_common_secret.innerText = `R: (${alice_secret.x}, ${alice_secret.y})`;
         }
         else {
-            let temp = new point(alice_input_point.x, alice_input_point.y);
-
-            let alice_secret = mul_point(g_point, (bob_private_key*alice_private_key)%prime);
-            alice_common_secret.innerText = `Common secret: (${alice_secret.x}, ${alice_secret.y})`;
+            console.log(alice_input_point);
+            console.log(pointarr);
+            alert('Invalid point');
         }
     }
     //end
