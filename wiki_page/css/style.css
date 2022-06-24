@@ -225,10 +225,11 @@ label,output{
 }
 
 .radio-container{
-    box-shadow: 0 1rem 3rem 0 var(--cd);
+
     height: 50vh;
     width:  12vw;
-
+    background-color: var(--cd);
+    color: var(--cp);
     align-self: center;
     display: flex;
     flex-direction: column;
@@ -242,10 +243,12 @@ label,output{
 
 #prime-container{
     grid-column: 2/3;
+
 }
 
 #equation-container{
     grid-column: 1/2;
+
 }
 
 .radio-button-container{
@@ -261,6 +264,7 @@ label,output{
     grid-row:1/2;
     align-self: center;
     box-shadow: 0 1rem 3rem 0 var(--cd);
+    background-color: var(--cd);
 
     padding:  4vh;
     display: flex;
@@ -272,21 +276,14 @@ label,output{
 
 #graph-generator{
     width: 20vh;
-    height: 3rem;
-    font-size: 2rem;
+    height: 4rem;
     align-self: center;
-
-    font-weight: bold;
-    color : var(--cp);
+//
     background-color: var(--cd);
-    box-shadow: 0 1rem 3rem 0 var(--cd);
-    font-family: var(--fm);
+    color: var(--cp);
+    font-size: 2rem;
 }
 
-#graph-generator:hover{
-    background-color: var(--ca);
-    color: var(--cd);
-}
 #input-graph{
     height: 80vh;
     width: 80vh;
@@ -305,8 +302,6 @@ label,output{
     gap: 1vh;
     padding : 2vh;
 }
-
-
 
 .encrypter-module{
     height: 50vh;
@@ -339,12 +334,13 @@ label,output{
     font-size: 2rem;
 }
 
-.point-generator:hover{
+.point-generator:hover, #graph-generator:hover {
+    cursor: pointer;
     box-shadow: 0 1rem 3rem 0 var(--ca);
     color: var(--cp);
 }
 
-.point-generator:active{
+.point-generator:active, #graph-generator:active {
     box-shadow: 0 1rem 3rem 0 var(--cl);
     color: var(--cl);
 }
