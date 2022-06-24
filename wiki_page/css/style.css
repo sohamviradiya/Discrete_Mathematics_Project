@@ -355,13 +355,13 @@ label,output{
     font-size: 2rem;
 }
 
-.point-generator:hover, #graph-generator:hover {
+.point-generator:hover, #graph-generator:hover, .secret-generator:hover {
     cursor: pointer;
     box-shadow: 0 1rem 3rem 0 var(--ca);
     color: var(--cp);
 }
 
-.point-generator:active, #graph-generator:active {
+.point-generator:active, #graph-generator:active, .secret-generator:active {
     box-shadow: 0 1rem 3rem 0 var(--cl);
     color: var(--cl);
 }
@@ -396,16 +396,6 @@ label,output{
     background-color: var(--cd);
     color: var(--cp);
     font-size: 2rem;
-}
-
-.secret-generator:hover{
-    box-shadow: 0 1rem 3rem 0 var(--ca);
-    color: var(--cp);
-}
-
-.secret-generator:active{
-    box-shadow: 0 1rem 3rem 0 var(--cl);
-    color: var(--cl);
 }
 
 .encrypter-input-x{
