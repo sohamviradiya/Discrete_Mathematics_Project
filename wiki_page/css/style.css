@@ -12,27 +12,6 @@
     letter-spacing: 0.2vh;
 }
 
-.division-inner{
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));   /* repeat(3,1fr) */
-}
-
-
-.division-item h1{
-    color: #283593;
-    font-size: 3rem;
-    font-weight: bolder;
-    margin: 0;
-}
-
-.division-item p{
-    margin: 0;
-    line-height: 1.6;
-    color: #333;
-}
-
 .nav-bar{
     position: fixed;
     z-index: 1;
@@ -233,6 +212,39 @@ img{
     aspect-ratio: 2/1;
 }
 
+.division-inner{
+    border: 0.2rem solid var(--cd);
+
+    width: 69vw;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+    background-color: var(--cl);
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));   /* repeat(3,1fr) */
+}
+
+.division-item{
+    width: 18vw;
+    padding: 5rem;
+}
+
+#bob-div-item, #eve-div-item{
+    border-right: 0.2rem solid var(--cd);
+}
+
+.division-item h1{
+    color: #283593;
+    font-size: 3rem;
+    font-weight: bolder;
+    margin: 0;
+}
+
+.division-item p{
+    margin: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
 label,output{
     font-size: 2rem;
     font-weight: 800;
@@ -245,9 +257,7 @@ label,output{
     justify-items: center;
 }
 
-
 .radio-container{
-
     height: 50vh;
     width:  12vw;
     align-self: center;
@@ -259,6 +269,7 @@ label,output{
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
 #prime-container{
     grid-column: 2/3;
     border-bottom: 0.2rem solid var(--cd);
