@@ -247,7 +247,7 @@ label,output{
 
 
 .radio-container{
-    box-shadow: 0 1rem 3rem 0 var(--cd);
+
     height: 50vh;
     width:  12vw;
     align-self: center;
@@ -261,9 +261,14 @@ label,output{
 }
 #prime-container{
     grid-column: 2/3;
+    border-bottom: 0.2rem solid var(--cd);
+    border-top: 0.2rem solid var(--cd);
+    border-right: 0.2rem solid var(--cd);
+
 }
 #equation-container{
     grid-column: 1/2;
+    border: 0.2rem solid var(--cd);
 }
 .radio-button-container{
     display:flex;
@@ -272,6 +277,7 @@ label,output{
     align-items: center;
     width: calc(12vw - 2rem);
 }
+
 #graph-container{
     grid-column: 3/4;
     grid-row:1/2;
@@ -284,6 +290,7 @@ label,output{
     align-content: center;
     justify-content: space-evenly;
 }
+
 #graph-generator{
     width: 20vh;
     height: 3rem;
@@ -295,6 +302,7 @@ label,output{
     box-shadow: 0 1rem 3rem 0 var(--cd);
     font-family: var(--fm);
 }
+
 #graph-generator:hover{
     background-color: var(--ca);
     color: var(--cd);
