@@ -215,9 +215,56 @@
                 <section class="content-section" id="algorithm-section">
                     <h3 class="section-title"> Elliptic Curve Diffie Hellman: </h3>
                     <p class="section-content">
-                        &emsp; lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
-                        &emsp; lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        &emsp;&emsp; Elliptic-curve Diffie-Hellman is a key agreement protocol that enables two parties to create a shared secret via an unsecured channel and each have an elliptic-curve public-private key pair. This shared information can either be utilised directly as a key or to create another key. Subsequent communications can subsequently be encrypted with a symmetric-key cypher utilising the key, or the key that was obtained from it. Using elliptic-curve cryptography, it is a Diffie-Hellman protocol variation.
                     </p>
+                    <p>&#9830; &emsp;Let’s understand how the Elliptic curve Diffie-Hellman Algorithm works &#8594; </p>
+                    <div class="division">
+                        <div class="division-inner">
+                            <div class="division-item">
+                                <h1>Bob:</h1>
+                                <br>
+                                <p>
+                                    Bob picks private key β &#8722; <br>
+                                    1&#8804; β &#8804; n-1 <br>
+                                    Computes &#8722; <br>
+                                    B = βG <br>
+                                    Receives &#8722; <br>
+                                    A = (x<sub>A</sub> , y<sub>A</sub>) <br>
+                                    Computes &#8722; <br>
+                                    P = βαG
+                                </p>
+                            </div>
+                            <div class="division-item">
+                                <h1>Eve:</h1>
+                                <br>
+                                <p>
+                                    y<sup>2</sup> = x<sup>3</sup> + ax + b <br>
+                                    Public Key: P , a , b , G , n ,<br>&emsp;&emsp;&emsp;&emsp;&emsp; h , A , B <br>
+                                    Where , <br>
+                                    P = Field that the curve is define over <br>
+                                    a , b = Values define the curve <br>
+                                    G = Generator point <br>
+                                    n = Prime order of G <br>
+                                    h = Co-factor <br>
+                                    A , B = Point on the curve
+                                </p>
+                            </div>
+                            <div class="division-item">
+                                <h1>Alice:</h1>
+                                <br>
+                                <p>
+                                    Alice picks private key α &#8722; <br>
+                                    1&#8804; α &#8804; n-1 <br>
+                                    Computes &#8722; <br>
+                                    A = αG <br>
+                                    Receives &#8722; <br>
+                                    B = (x<sub>B</sub> , y<sub>B</sub>) <br>
+                                    Computes &#8722; <br>
+                                    P = βαG
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
                 <div id="begin-commerce" class="section-break"></div>
