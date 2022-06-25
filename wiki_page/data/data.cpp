@@ -1,4 +1,6 @@
-#include<iostream>
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
 #include<vector>
 using namespace std;
 class Point{
@@ -67,21 +69,21 @@ int main(){
     cout<<"Enter a,b,prime: ";
     vector <Point> points;
     cin>>a>>b>>prime;
-    cout << "enter point: ";
-    int x,y;
-    cin>>x>>y;
-    Point p(x,y,prime);
-    for(int i = 1;i<prime;i++){
-        Point pi = mul(p, i, a, prime);
-        if(pi.x==0 && pi.y==0)
-            break;
-        points.push_back(pi);
-    }
-
-    for(int i=0;i<points.size();i++){
-        cout<<points[i].x<<" "<<points[i].y<<endl;
-    }
-    return 0;
+    // implement ece;
+    int x, y;
+    cout << "enter generator point: ";
+    cin >> x >> y;
+    Point g(x, y, prime);
+    //generate secret key;
+    srand(time(0));
+    int alpha = rand() % prime;
+    Point A = mul(g, alpha, a, prime);
+    cout << A.x <<" "<< A.y << endl;
+    Point B(0, 0, prime);
+    cout << "Enter Point: ";
+    cin >> B.x >> B.y;
+    Point R = mul(B, alpha, a, prime);
+    cout << "Shared secret: "<<R.x<<" "<<R.y<<endl;
     // int count = 0;
     // for(int i=0;i<prime;i++){
     //     for(int j=0;j<prime;j++){
