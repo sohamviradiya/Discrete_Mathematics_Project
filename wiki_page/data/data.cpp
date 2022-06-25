@@ -84,13 +84,4 @@ int main(){
     cin >> B.x >> B.y;
     Point R = mul(B, alpha, a, prime);
     cout << "Shared secret: "<<R.x<<" "<<R.y<<endl;
-    // int count = 0;
-    // for(int i=0;i<prime;i++){
-    //     for(int j=0;j<prime;j++){
-    //         if((j*j)%prime==i*i*i+a*a+b){
-    //             cout<<i<<" "<<j<<endl;
-    //             count += 1;
-    //         }
-    // }
-    // cout<<count<<endl;
 }
