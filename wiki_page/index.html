@@ -215,7 +215,7 @@
                 <section class="content-section" id="algorithm-section">
                     <h3 class="section-title"> Elliptic Curve Diffie Hellman: </h3>
                     <p class="section-content">
-                        &emsp;&emsp; Elliptic-curve Diffie-Hellman is a key agreement protocol that enables two parties to create a shared secret via an unsecured channel and each have an elliptic-curve public-private key pair. This shared information can either be utilised directly as a key or to create another key. Subsequent communications can subsequently be encrypted with a symmetric-key cypher utilising the key, or the key that was obtained from it. Using elliptic-curve cryptography, it is a Diffie-Hellman protocol variation.
+                        &emsp;&emsp; Elliptic-curve Diffie-Hellman is a key agreement protocol that enables two parties to create a shared secret via an unsecured channel and each have an elliptic-curve public-private key pair. This shared information can either be utilised directly as a key or to create another key. Subsequent communications can subsequently be encrypted with a symmetric-key cypher utilising the key, or the key that was obtained from it. Using elliptic-curve cryptography, it is a Diffie-Hellman protocol variation. Here, Alice and Bob created a shared secret point R. Eve knows A,B and G but for large groups she cannot solve the elliptic curve discrete logarithm problem to obtain β or α and therefore point R.
                     </p>
                     <p>&#9830; &emsp;Let’s understand how the Elliptic curve Diffie-Hellman Algorithm works &#8594; </p>
                     <div class="division">
@@ -231,7 +231,7 @@
                                     Receives &#8722; <br>
                                     A = (x<sub>A</sub> , y<sub>A</sub>) <br>
                                     Computes &#8722; <br>
-                                    P = βαG
+                                    R = βαG
                                 </p>
                             </div>
                             <div class="division-item" id="eve-div-item">
@@ -260,7 +260,7 @@
                                     Receives &#8722; <br>
                                     B = (x<sub>B</sub> , y<sub>B</sub>) <br>
                                     Computes &#8722; <br>
-                                    P = βαG
+                                    R = βαG
                                 </p>
                             </div>
                         </div>
