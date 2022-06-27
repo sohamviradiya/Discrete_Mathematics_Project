@@ -257,6 +257,11 @@ label,output{
     justify-items: center;
 }
 
+.image-credits{
+    width: 80%;
+    text-align: right;
+    margin-top: 2rem;
+}
 .radio-container{
     height: 50vh;
     width:  12vw;
