@@ -27,7 +27,7 @@ long long inv(long long n,long long prime){
 Point add(Point p1,Point p2,long long prime){
     if(p1.x==0 && p1.y==0)
         return p2;
-    else if(p1.x==0 && p1.y==0)
+    else if(p2.x==0 && p2.y==0)
         return p1;
     else if(p1.x==p2.x)
         return Point(0,0,prime);
