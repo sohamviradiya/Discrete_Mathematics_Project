@@ -181,6 +181,10 @@ p{
     width:100%;
 }
 
+.code-frame{
+    margin-left: 10vw;
+}
+
 i{
     font-weight: 800;
     color: var(--ca);
