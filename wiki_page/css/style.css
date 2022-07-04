@@ -99,7 +99,7 @@ main{
     display: grid;
     grid-template-columns: 2fr 7fr;
     grid-template-rows: 1fr;
-    gap: 5rem;
+    gap: 3rem;
     margin-top: 15vh;
     margin-left: -1vw;
 }
@@ -107,8 +107,9 @@ main{
 .side-bar{
     grid-column: 1/2;
     grid-row: 1/2;
-    
+    flex-shrink: 0;
     height: 100%;
+    width: 20vw;
     margin: -5vh -1vw;
     padding: 10vh 0;
     box-shadow: 0 1rem 3rem 0 var(--cd);
@@ -128,20 +129,6 @@ main{
     color: var(--cd);
 }
 
-
-
-.main-heading{
-    background-color: grey;
-    color: #fff;
-    text-decoration: none;
-    padding: 1px 1px;
-    border-radius: 8px;
-    font-size: 3rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-top: 30px;
-    text-align: center;
-}
-
 .container{
     grid-column: 2/3;
 }
@@ -153,10 +140,29 @@ a,a:visited{
     text-decoration: none;
 }
 
+.main-heading{
+    width:80vw;
+    height:100vh;
+    margin-left: -1rem;
+    margin-top: -2rem;
+    margin-right: -3rem;
+    background-image: url('../img/background.jpg');
+    display: flex;
+    padding-left: 3rem;
+}
+
+.project-title{
+    align-self: flex-end;
+    font-size: 8rem;
+    font-weight: bolder;
+    color: var(--cp);
+    text-shadow: 0.1rem 0.1rem 0.2rem var(--cp);
+}
 
 h3{
     font-size: 3.5rem;
     font-weight: bolder;
+    text-shadow: 0.1rem 0.1rem 0.2rem var(--cd) ;
     color: var(--cd);
 }
 
@@ -164,11 +170,6 @@ h4{
     font-size: 3rem;
     font-weight: bold;
     color: var(--cd);
-}
-
-.section-title{
-    text-decoration: underline;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .subsection-title{
