@@ -147,6 +147,7 @@ a,a:visited{
     margin-top: -2rem;
     margin-right: -3rem;
     background-image: url('https://images.pexels.com/photos/8185629/pexels-photo-8185629.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-repeat: no-repeat;
     display: flex;
     padding-left: 3rem;
 }
