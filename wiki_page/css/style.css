@@ -127,9 +127,18 @@ main{
     color: var(--cd);
 }
 
-.project-title{
-    font-weight: bolder;
+
+
+.main-heading{
+    background-color: grey;
+    color: #fff;
     text-decoration: none;
+    padding: 1px 1px;
+    border-radius: 8px;
+    font-size: 3rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 30px;
+    text-align: center;
 }
 
 .container{
@@ -143,12 +152,6 @@ a,a:visited{
     text-decoration: none;
 }
 
-.project-title{
-    margin-left: -2rem;
-    font-size: 4.5rem;
-    font-weight: bolder;
-    color: var(--cd);
-}
 
 h3{
     font-size: 3.5rem;
@@ -160,6 +163,11 @@ h4{
     font-size: 3rem;
     font-weight: bold;
     color: var(--cd);
+}
+
+.section-title{
+    text-decoration: underline;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .subsection-title{
