@@ -139,22 +139,16 @@ a,a:visited{
 }
 
 .main-heading{
-    width:80vw;
-    height:100vh;
-    margin-left: -3rem;
-    margin-top: -2rem;
-    margin-right: -3rem;
-    background-image: url('../img/background.jpg');
-    background-repeat: no-repeat;
-    display: flex;
-    padding-left: 3rem;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: -0.1rem 0.1rem 0.3rem var(--cl);
 }
 
 .project-title{
     align-self: flex-end;
     font-size: 8rem;
     font-weight: bolder;
-    color: var(--cp);
+    color: var(--cd);
     text-shadow: 0.1rem 0.1rem 0.2rem var(--cp);
 }
 
