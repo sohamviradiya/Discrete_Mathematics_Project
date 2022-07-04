@@ -23,8 +23,6 @@
     width: 100vw;
     height: 8vh;
     color: var(--cp);
-
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -146,7 +144,7 @@ a,a:visited{
     margin-left: -3rem;
     margin-top: -2rem;
     margin-right: -3rem;
-    background-image: url('https://images.pexels.com/photos/8185629/pexels-photo-8185629.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-image: url('../img/background.jpg');
     background-repeat: no-repeat;
     display: flex;
     padding-left: 3rem;
