@@ -99,7 +99,7 @@ main{
     display: grid;
     grid-template-columns: 2fr 7fr;
     grid-template-rows: 1fr;
-    gap: 3rem;
+    gap: 5rem;
     margin-top: 15vh;
     margin-left: -1vw;
 }
@@ -143,7 +143,7 @@ a,a:visited{
 .main-heading{
     width:80vw;
     height:100vh;
-    margin-left: -1rem;
+    margin-left: -3rem;
     margin-top: -2rem;
     margin-right: -3rem;
     background-image: url('../img/background.jpg');
