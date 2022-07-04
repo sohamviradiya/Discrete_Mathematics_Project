@@ -97,18 +97,19 @@
 main{
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 2fr 7fr;
     grid-template-rows: 1fr;
     gap: 5rem;
     margin-top: 15vh;
-    margin-left: -1vh;
+    margin-left: -1vw;
 }
 
 .side-bar{
     grid-column: 1/2;
     grid-row: 1/2;
+    
     height: 100%;
-    margin: -5vh 0;
+    margin: -5vh -1vw;
     padding: 10vh 0;
     box-shadow: 0 1rem 3rem 0 var(--cd);
 }
@@ -118,12 +119,12 @@ main{
     display: flex;
     gap: 2rem;
     flex-direction: column;
-    list-style-type: upper-roman;
+    list-style: none;
 }
 
 .page-nav>li>a{
-    font-size: 1.5rem;
-    margin: 1rem;
+    font-size: 1.4rem;
+    font-weight: 800;
     color: var(--cd);
 }
 
