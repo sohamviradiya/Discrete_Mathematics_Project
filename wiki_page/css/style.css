@@ -147,15 +147,20 @@ a,a:visited{
     border: none;
 }
 
+.title-image{
+    height: 60vh;
+    object-fit: cover;
+}
 .project-title{
     position: absolute;
     left: 23vw;
-    top: 100vh;
+    top: 50vh;
     align-self: flex-end;
     font-size: 8rem;
     font-weight: bolder;
-    color: var(--cp);
-    text-shadow: 0.1rem 0.1rem 0.3rem var(--cp);
+    padding: 0 5vw;
+    background: #c5cae960;
+    text-shadow: 0.1rem 0.1rem 0.3rem var(--cl);
 }
 
 h3{
