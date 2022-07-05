@@ -141,15 +141,21 @@ a,a:visited{
 .main-heading{
     padding: 1rem 0;
     text-align: center;
-    box-shadow: -0.1rem 0.1rem 0.3rem var(--cl);
+    margin-left: -3.3rem;
+    margin-top: -3.2rem;
+    width:81vw;
+    border: none;
 }
 
 .project-title{
+    position: absolute;
+    left: 23vw;
+    top: 100vh;
     align-self: flex-end;
     font-size: 8rem;
     font-weight: bolder;
-    color: var(--cd);
-    text-shadow: 0.1rem 0.1rem 0.2rem var(--cp);
+    color: var(--cp);
+    text-shadow: 0.1rem 0.1rem 0.3rem var(--cp);
 }
 
 h3{
